@@ -1,27 +1,16 @@
-\documentclass[12pt]{article}
-\usepackage{mgates-letter}
-\definecolor{dark_blue} {rgb}{0., 0., 0.65}
-
-\usepackage{textcomp}
-\usepackage{mathrsfs}  % mathscr font
-\usepackage{boxedminipage}
-\usepackage{rotating}
+\documentclass[12pt, a4paper]{article}
 %\usepackage{natbib}
-\usepackage[colorlinks, filecolor=dark_blue, urlcolor=dark_blue, linkcolor=black, citecolor=black]{hyperref}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
 \usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage{textcomp}
+\usepackage{xcolor}
 \usepackage[inline]{enumitem}
+\usepackage[hidelinks]{hyperref}
+
 \usepackage{myacronyms}
 \usepackage{listings}
-\usepackage{mathtools}
-\usepackage{stmaryrd}
-\usepackage{subcaption}
-\usepackage{nicefrac}
-\usepackage{float}
 \usepackage{cleveref}
 
 \begin{document}
@@ -53,11 +42,28 @@ The coordination of devices in \ac{cas} can be challenging due to the heterogene
 resource constraints, and the need to adapt to dynamic changes in the environment.
 
 Macroprogramming can be used to promote collective behaviors,
-leveraging high level abstractions and constructs to facilitate global coordination,
+leveraging high-level abstractions and constructs to facilitate global coordination,
 decentralized control, and adaptability in complex systems.
 
 
 \paragraph{Macroprogramming}
+The term \emph{macroprogramming}~\cite{casadei2023} refers to the concept of expressing the macroscopic behavior of a system
+through a single program,
+usually leveraging on macro-level abstractions.
+%
+This paradigm is driven by the need to capture \emph{system-level behavior} while abstracting the behavior and interaction
+of the individual components involved.
+%
+Macroprogramming approaches have been suggested to simplify the development of systems involving many interconnected sensors,
+actuators, and smart devices;
+they can be applied in context like \ac{iot} and \ac{cps}.
+
+Macroprogramming abstractions can promote collective behavior properties,
+such as self-organizing or self-configuring in the context of \ac{cas}.
+%
+By declaring tasks within a specific spatio-temporal region,
+systems can self-organize and effectively perform the task at hand,
+allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
 
 \paragraph{Field Calculus}
 
