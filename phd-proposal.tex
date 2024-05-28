@@ -11,6 +11,9 @@
 
 \usepackage{myacronyms}
 \usepackage{listings}
+
+\newenvironment{inlinelist}{\begin{enumerate*}[label=\emph{(\roman*)}]}{\end{enumerate*}}
+
 \usepackage{cleveref}
 
 \begin{document}
@@ -25,7 +28,7 @@
 
 % ----------------------------------------
 \section{State of the art}\label{sec:state-of-the-art}
-
+%
 \paragraph{Collective Adaptive Systems}
 
 \ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
@@ -76,6 +79,14 @@ such as ``Linda''~\cite{ViroliCoordination2012} and ``MARS''~\cite{mars},
 suggesting innovative techniques for programming systems with devices of different nature,
 focusing on the coordination of centralized local components,
 but not on the distribution of the system.
+%
+The main problems that can be encountered in distributed systems are dealing with
+\begin{inlinelist}
+    \item openness, as unexpected environment changes,
+    \item large scale of agents and coordination abstractions to be managed,
+    \item intrinsic adaptiveness, such as the ability to intercept relevant events and react to them,
+    guaranteeing the resilience of the system.
+\end{inlinelist}
 
 The challenges require a \emph{self-organizing and coordination} approach,
 wherein coordination abstractions solely manage logical interactions.
@@ -83,6 +94,34 @@ wherein coordination abstractions solely manage logical interactions.
 This ensures the emergence of global and robust patterns of correct coordination behavior.
 
 \paragraph{Field Calculus}
+To facilitate self-organization patterns of agents in complex environments,
+the concept of \emph{coordination field} has been introduced.
+%
+This abstraction serves as a navigational tool for agents over the actual environment.
+
+In this context, the tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} has been suggested
+to support field-based coordination for pervasive-computing applications.
+
+Somewhat independently of the challenge of identifying appropriate coordination models for distributed and situated systems,
+several studies have tackled analogous issues in the broader endeavor of constructing distributed intelligent systems.
+%
+This involves promoting higher abstractions of spatial collective adaptive systems.
+
+Among the studies such as for managing space-time computing models for the manipulation of distributed data structures,
+the notion of computational fields was proposed~\cite{JLAMP2019}.
+%
+Consequently, the \ac{fc} was proposed as a foundational model for the coordination of computational devices spread in physical environments,
+also known as \ac{ac}.
+%
+\ac{fc} was introduced as a minimal core calculus with the aim of capturing the fundaments that make use of computational fields:
+functions over and with fields, their evolution over time and the construction of field of values from neighbors.
+
+The main concept of \ac{fc} is to specify the aggregate system behavior of a network of devices,
+where devices that can directly communicate with each other are indicated through a dynamic network relation.
+%
+An example of its application is within a sensor network with a range of a broadcast communication.
+
+%todo more on fc
 
 \paragraph{Aggregate Programming}
 
