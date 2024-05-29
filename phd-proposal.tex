@@ -11,6 +11,9 @@
 
 \usepackage{myacronyms}
 \usepackage{listings}
+\usepackage{todonotes}
+\newcommand{\note}[3]{\todo[inline,linecolor=#1,backgroundcolor=#1!25,bordercolor=#1]{\textbf{#2:} #3}}
+\newcommand{\angela}[1]{\note{blue}{Angela}{#1}}
 
 \newenvironment{inlinelist}{\begin{enumerate*}[label=\emph{(\roman*)}]}{\end{enumerate*}}
 
@@ -22,13 +25,17 @@
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
-
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
+%
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{1em}
 
 % ----------------------------------------
 \section{State of the art}\label{sec:state-of-the-art}
-%
+% Esporre sinteticamente lo “stato dell’arte” relativamente al tema di ricerca prescelto,
+% con le indicazioni bibliografiche essenziali.
+% Se il progetto fa parte di una ricerca più ampia, evidenziare in modo specifico l’attività specifica che ci si propone di svolgere.
+% Inserire inoltre gli elementi essenziali utili a dimostrare la coerenza del tema di ricerca prescelto con il percorso di
+% formazione e le esperienze pregresse.
 \paragraph{Collective Adaptive Systems}
 
 \ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
@@ -121,29 +128,92 @@ where devices that can directly communicate with each other are indicated throug
 %
 An example of its application is within a sensor network with a range of a broadcast communication.
 
-%todo more on fc
+The behavior is applied through a functional composition of operators that manipulate the computational fields,
+called specification,
+that can be interpreted locally or globally.
+%
+A local specification can describe a computation on an individual device executed in asynchronous ``computational rounds'',
+including sending or receiving messages from neighbors,
+getting information from sensors and computing the local value of the field.
+%
+Each round is divided in three phases:
+\begin{inlinelist}
+    \item \emph{context building}, where the device collects information from the environment and from the messages
+    received from the neighbors, and aggregates them to build a local context;
+    \item \emph{program execution}, each device executes the program on the context;
+    \item \emph{export sharing}, the device sends messages to its neighbors, containing the results of the computation.
+\end{inlinelist}
 
-\paragraph{Aggregate Programming}
+In the global view,
+a field calculus expression specifies a mapping associating each computation round of each device to the value that it assumes at that space-time event.
+%
+This dual nature inherently facilitates the alignment of individual device behavior with the overarching global behavior of the entire
+network of devices.
+
+\paragraph{Aggregate Computing/Programming}
+\ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development of self-adaptive \ac{iot} services,
+based on the abstractions of the \ac{fc}~\cite{MAMEIZL04}.
+
+\ac{ac} allows to program the behavior of a distributed system by defining the interaction among the devices,
+rather than the behavior of each device.
+%
+With this approach,
+the fundamental unit of computation switch from the single device to a collaborative group of devices.
+
+\ac{ac} has the core idea of functionality composing collective behaviors to achieve effective and resilient complex behaviors in dynamic networks. %todo sta frase non ha un senso
+%
+It views a given environment as a whole programmable entity whose parts collaboratively produce and consume services across space and time.
+
+Therefore, its structure supports the specification, analysis, simulation and runtime execution of \emph{collective}
+or \emph{aggregate} services, independently of the specific~\ac{iot} architecture.
+
+This paradigm has three key traits that characterise it:
+\begin{inlinelist}
+    \item \emph{global stance with global-to-local mapping}, where the target of system design is the entire distributed \ac{iot} ecosystem,
+    \item \emph{behaviour compositionality}, whereby a rich collective service can be described in terms of the functional
+        composition of simpler collective services, and
+    \item \emph{abstraction}, by which aggregate services enable adaptivity at different levels by abstracting from low-level
+        issues and details.
+\end{inlinelist}
+%
+These attributes are crucial both in the design phase, where intricate solutions can frequently be articulated concisely
+and declaratively, and in the operational phase, where considerable flexibility is granted to the developers team and the
+platform regarding execution specifics and deployment strategies.
+
+\ac{ac} enables the development of complex programs by the composing of simpler function blocks.
+%
+Therefore, it is defined as a single program for the entire system and every device locally evaluates it at a certain frequency,
+and sends messages with other devices that are considered neighbors in the network if needed.
+
+\angela{riscrivi sta porcara}
+
+\paragraph{Cyber-Physical Systems}
 
 \paragraph{Actual tools}
 
-% coerenza con il percorso formativo
+\subsubsection{Coherence with the educational path}
+%fatto core di scafi in rust + un po' di core in scala 3
+%tesi
+%assegno di ricerca garr
 
 % ----------------------------------------
 \section{Project description}\label{sec:project-description}
-
+% Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la
+% pianificazione sperimentale per perseguire gli obiettivi prefissati.
 
 % ----------------------------------------
 \section{Expected results}\label{sec:expected-results}
-
+%Descrivere sinteticamente quale apporto la ricerca può fornire all’avanzamento delle conoscenze scientifico-tecnologiche
+%e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.
 
 % ----------------------------------------
 \section{Subdivision of the project and timeline}\label{sec:subdivision-of-the-project-and-timeline}
-
+% Illustrare lo sviluppo temporale della ricerca nei 3 anni di progetto.
 
 % ----------------------------------------
 \section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
-
+%Descrivere sinteticamente quali modalità si intendono utilizzare durante lo svolgimento del progetto per il monitoraggio
+%e la valutazione del raggiungimento dei risultati attesi.
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
