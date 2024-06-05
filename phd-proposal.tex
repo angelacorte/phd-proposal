@@ -21,7 +21,7 @@
 
 \begin{document}
 
-\title{Titolo accattivante}
+\title{Towards aggregate operative systems with Aggregate Computing}
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
@@ -187,14 +187,20 @@ and sends messages with other devices that are considered neighbors in the netwo
 
 \angela{riscrivi sta porcara}
 
-\paragraph{Cyber-Physical Systems}
+\paragraph{Actual tools for Aggregate Computing}
 
-\paragraph{Actual tools}
+\subparagraph{ScaFi}
+
+\subparagraph{Protelis}
+
+\subparagraph{FCPP}
+
+\subparagraph{Collektive}
+
+
 
 \subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
-%fatto eengine di scafi in rust + un po' di core minimale in scala 3
-%tesi
-%assegno di ricerca garr
+
 The research project proposed can be seen as an extension of the research activities carried out during the Master's degree.
 
 During the Master's degree, the exploration of \ac{fc} and \ac{ac} began as a project of the course ``Pervasive Computing''.
@@ -211,7 +217,7 @@ This work provided me with a good foundation in the field of \ac{ac} and \ac{fc}
 The Master's thesis was also focused on the \ac{ac} paradigm.
 %
 The goal of the thesis was to expand the work done on the Collektive \ac{dsl} previously developed,
-by adding the constructs of the \emph{eXchange Calculus} to the language. \angela{todo explain xc and collektive}
+by adding the constructs of the \emph{eXchange Calculus} to the language. \angela{todo explain xc and collektive?}
 %
 At the end of the thesis, a prototype of the language was ready and tested on simple case study,
 showing the potential of the language in the development of \ac{ac} applications.
@@ -244,6 +250,58 @@ done using \emph{Collektive}.
 \section{Project description}\label{sec:project-description}
 % Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la
 % pianificazione sperimentale per perseguire gli obiettivi prefissati.
+The literature proposes the concept of \emph{aggregate processes}~\cite{aggregate-processes},
+which is a concurrent field computation whose execution and interactions are sustained by a dynamic team of devices,
+and whose spatial region can opportunistically change over time.
+%
+This concept captures
+\begin{inlinelist}
+    \item aggregate behavior,
+    \item dynamicity and context orientation,
+    \item intrinsic resiliency;
+\end{inlinelist}
+and as perks, it offers to
+\begin{inlinelist}
+    \item limit the consumption of computational resources,
+    \item maintain a good quality of service, and
+    \item enhance the dynamics of distributed computations.
+\end{inlinelist}
+
+Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
+the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
+of a new generation of operative systems arises.
+%
+The proposed research project aims to investigate the development of \emph{aggregate operative systems},
+based on the \ac{ac} paradigm.
+%
+The project will focus on capturing some of the key features and roles of an operative system with the \ac{ac} paradigm,
+such as the management of:
+\begin{itemize}
+    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common goal as a single
+        entity or logical resource (sensor and actuation fusion);
+    \item \textbf{file system}: there are distributed data that should be put together and managed as a single entity,
+        there are already some technologies with this aim, but the aim is to get a right level of abstraction to manage the data
+        without knowing the underlying technology;
+    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
+    \item \textbf{permissions}: access to resources and services based on the role of the user relative to the context in which they are located;
+\end{itemize}
+\angela{signals?}
+\angela{what does it mean 'user' in an aggregate environment?}
+
+Managing those features with the \ac{ac} paradigm allows writing a single program for the expected behavior of the system,
+even if there are different mechanisms behind the various devices involved.
+%
+In this way,
+the software developer does not have to worry about the underlying technology while developing the logic of the system,
+allowing for a more abstract and high-level programming approach and to involve heterogeneous devices in the system.
+
+The paradigm itself of \ac{ac} offers consistency and resilience to failures,
+and the possibility to adapt to \emph{dynamic} changes in the environment.
+
+%The project will focus on the development of a new generation of operative systems that can be used in the context of \ac{cas},
+%where the coordination of devices is challenging due to the heterogeneity of the devices involved,
+%resource constraints, and the need to adapt to dynamic changes in the environment.
+
 
 % ----------------------------------------
 \section{Expected results}\label{sec:expected-results}
