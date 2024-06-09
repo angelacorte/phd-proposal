@@ -21,7 +21,8 @@
 
 \begin{document}
 
-\title{Towards aggregate operative systems with Aggregate Computing}
+%\title{Towards aggregate operative systems with Aggregate Computing}
+\title{Towards cooperative operative environments with Aggregate Computing}
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
@@ -250,8 +251,14 @@ done using \emph{Collektive}.
 \section{Project description}\label{sec:project-description}
 % Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la
 % pianificazione sperimentale per perseguire gli obiettivi prefissati.
-The literature proposes the concept of \emph{aggregate processes}~\cite{aggregate-processes},
-which is a concurrent field computation whose execution and interactions are sustained by a dynamic team of devices,
+The objective of creating a new generation of operative systems based on \emph{cooperative operative environment}
+for opportunistic mobile applications and services is well known in literature,
+but few studies have been conducted to effectively develop such systems.
+
+Because of having multiple concurrent aggregate operations is a challenging task that is becoming necessary,
+it has been developed a system to manage of \emph{aggregate processes}~\cite{aggregate-processes} based on ~\ac{fc}.
+%
+Aggregate processes are concurrent field computations whose execution and interactions are sustained by a dynamic team of devices,
 and whose spatial region can opportunistically change over time.
 %
 This concept captures
@@ -266,6 +273,38 @@ and as perks, it offers to
     \item maintain a good quality of service, and
     \item enhance the dynamics of distributed computations.
 \end{inlinelist}
+
+Those kinds of processes are different from the concentrated ones,
+in particular,
+there are some issues that present in the aggregate approach rather than the traditional one.
+%
+For example,
+the management of the interruption of the processes,
+or understanding the owner of a process and to which resources it can access,
+or what does in mean to send a signal to a process.
+%
+All of these issues are already solved in the traditional approach,
+but they still need to be investigated and addressed in the aggregate approach.
+%
+Actually, for example,
+the termination is managed as a collective.
+%
+However,
+there may be situations in which a single device can decide to terminate the processes,
+or that a process which is using shared resources loses the rights to use them while executing,
+introducing a distributed consensus problem.
+
+In practical cases, there may be situations of crowd sensing or crowd steering where,
+eventually,
+law enforcement realizes that too many people are gathering.
+%
+Depending on the situation,
+these third-party entities can decide to interrupt the crowd-management process.
+
+Another matter not yet addressed is the management of the users in an aggregate environment.
+%
+There is the need to understand what does it mean to have a user in an aggregate environment,
+and how to manage the permissions of the users in the system.
 
 Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
 the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
@@ -284,9 +323,8 @@ such as the management of:
         without knowing the underlying technology;
     \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
     \item \textbf{permissions}: access to resources and services based on the role of the user relative to the context in which they are located;
+    \item \textbf{signals}: the management of the interruption of the processes and the communication between them.
 \end{itemize}
-\angela{signals?}
-\angela{what does it mean 'user' in an aggregate environment?}
 
 Managing those features with the \ac{ac} paradigm allows writing a single program for the expected behavior of the system,
 even if there are different mechanisms behind the various devices involved.
@@ -298,15 +336,11 @@ allowing for a more abstract and high-level programming approach and to involve 
 The paradigm itself of \ac{ac} offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
-%The project will focus on the development of a new generation of operative systems that can be used in the context of \ac{cas},
-%where the coordination of devices is challenging due to the heterogeneity of the devices involved,
-%resource constraints, and the need to adapt to dynamic changes in the environment.
-
-
 % ----------------------------------------
 \section{Expected results}\label{sec:expected-results}
 %Descrivere sinteticamente quale apporto la ricerca può fornire all’avanzamento delle conoscenze scientifico-tecnologiche
 %e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.
+
 
 % ----------------------------------------
 \section{Subdivision of the project and timeline}\label{sec:subdivision-of-the-project-and-timeline}
