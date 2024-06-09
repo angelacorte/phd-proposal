@@ -37,156 +37,253 @@
 % Se il progetto fa parte di una ricerca più ampia, evidenziare in modo specifico l’attività specifica che ci si propone di svolgere.
 % Inserire inoltre gli elementi essenziali utili a dimostrare la coerenza del tema di ricerca prescelto con il percorso di
 % formazione e le esperienze pregresse.
-\paragraph{Collective Adaptive Systems}
+%\paragraph{Collective Adaptive Systems}
 
-\ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
+\paragraph{Collective Adaptive Systems and Macroprogramming}
+
+\ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors, and actuators,
 that interact to achieve a common goal~\cite{ferscha2015}.
 %
-These systems are known for their ability to adjust to changes in the environment,
-systems requirements, or operational conditions.
-
+These systems adjust to changes in the environment, system requirements, or operational conditions.
+%
 \ac{cas} are frequently used in \ac{cps} applications,
-where devices collaborate to achieve a common goal,
-such as monitoring and controlling a physical environment or providing a service to users.
-%
-The coordination of devices in \ac{cas} can be challenging due to the heterogeneity of the devices involved,
-resource constraints, and the need to adapt to dynamic changes in the environment.
+where devices collaborate to monitor and control a physical environment or provide a service to users.
 
-Macroprogramming can be used to promote collective behaviors,
-leveraging high-level abstractions and constructs to facilitate global coordination,
-decentralized control, and adaptability in complex systems.
-
-
-\paragraph{Macroprogramming}
-The term \emph{macroprogramming}~\cite{casadei2023} refers to the concept of expressing the macroscopic behavior of a system
-through a single program,
-usually leveraging on macro-level abstractions.
+Coordination in \ac{cas} is challenging due to device heterogeneity, resource constraints, and the need to adapt to dynamic changes.
 %
-This paradigm is driven by the need to capture \emph{system-level behavior} while abstracting the behavior and interaction
-of the individual components involved.
-%
-Macroprogramming approaches have been suggested to simplify the development of systems involving many interconnected sensors,
-actuators, and smart devices;
-they can be applied in context like \ac{iot} and \ac{cps}.
+The mentioned challenges can be addressed by using \emph{macroprogramming}.
 
-Macroprogramming abstractions can promote collective behavior properties,
-such as self-organizing or self-configuring in the context of \ac{cas}.
+\emph{Macroprogramming}~\cite{casadei2023} refers to expressing the macroscopic behavior of a system through a single program using
+macro-level abstractions.
 %
-By declaring tasks within a specific spatio-temporal region,
-systems can self-organize and effectively perform the task at hand,
-allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
+This approach captures system-level behavior while abstracting individual component interactions.
+%
+It simplifies developing systems with many interconnected sensors, actuators, and smart devices,
+applicable in contexts like \ac{iot} and \ac{cps}.
 
-\paragraph{Self-organization}
-Coordination models are based on the notion that interaction among multiple independent and autonomous software systems
-can be designed as a space orthogonal to pure computation.
-%
-This idea can be reified into a concept of shared data space, enabling so-called \emph{generative communication}.
+Macroprogramming promotes collective behavior properties, such as self-organization and self-configuration, by declaring
+tasks within specific spatio-temporal regions, allowing systems to dynamically adapt to their deployment and spatial positions.
 
-Over the course of time, different approaches have been created,
-such as ``Linda''~\cite{ViroliCoordination2012} and ``MARS''~\cite{mars},
-suggesting innovative techniques for programming systems with devices of different nature,
-focusing on the coordination of centralized local components,
-but not on the distribution of the system.
 %
-The main problems that can be encountered in distributed systems are dealing with
+%\ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
+%that interact to achieve a common goal~\cite{ferscha2015}.
+%%
+%These systems are known for their ability to adjust to changes in the environment,
+%systems requirements, or operational conditions.
+%
+%\ac{cas} are frequently used in \ac{cps} applications,
+%where devices collaborate to achieve a common goal,
+%such as monitoring and controlling a physical environment or providing a service to users.
+%%
+%The coordination of devices in \ac{cas} can be challenging due to the heterogeneity of the devices involved,
+%resource constraints, and the need to adapt to dynamic changes in the environment.
+%
+%Macroprogramming can be used to promote collective behaviors,
+%leveraging high-level abstractions and constructs to facilitate global coordination,
+%decentralized control, and adaptability in complex systems.
+%
+%
+%\paragraph{Macroprogramming}
+%The term \emph{macroprogramming}~\cite{casadei2023} refers to the concept of expressing the macroscopic behavior of a system
+%through a single program,
+%usually leveraging on macro-level abstractions.
+%%
+%This paradigm is driven by the need to capture \emph{system-level behavior} while abstracting the behavior and interaction
+%of the individual components involved.
+%%
+%Macroprogramming approaches have been suggested to simplify the development of systems involving many interconnected sensors,
+%actuators, and smart devices;
+%they can be applied in context like \ac{iot} and \ac{cps}.
+%
+%Macroprogramming abstractions can promote collective behavior properties,
+%such as self-organizing or self-configuring in the context of \ac{cas}.
+%%
+%By declaring tasks within a specific spatio-temporal region,
+%systems can self-organize and effectively perform the task at hand,
+%allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
+
+\paragraph{Self-organization and Field Calculus}
+
+Coordination models posit that interaction among multiple independent and autonomous software systems can be designed
+orthogonally to pure computation, conceptualized as a shared data space enabling \emph{generative communication}.
+
+Over time, various approaches like "Linda"~\cite{ViroliCoordination2012} and "MARS"~\cite{mars} have emerged,
+focusing on centralized local components rather than system distribution.
+
+Key challenges in distributed systems include openness to environmental changes, large-scale agent coordination,
+and intrinsic adaptiveness to ensure system resilience.
+%
+Addressing these challenges requires a \emph{self-organizing and coordination} approach, managing logical interactions to
+ensure global and robust coordination behavior.
+
+To facilitate self-organization in complex environments, the \emph{coordination field} concept was introduced as a
+navigational tool for agents.
+%
+The tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} supports field-based coordination in pervasive
+computing applications.
+
+Independently, studies on distributed intelligent systems proposed computational fields for managing space-time
+computing models~\cite{JLAMP2019}.
+
+\ac{fc} emerged as a foundational model for coordinating computational devices in physical environments.
+%
+It specifies aggregate system behavior through a dynamic network of directly communicating devices,
+using functional compositions of operators manipulating computational fields.
+%
+Local specifications involve asynchronous computational rounds with three phases:
 \begin{inlinelist}
-    \item openness, as unexpected environment changes,
-    \item large scale of agents and coordination abstractions to be managed,
-    \item intrinsic adaptiveness, such as the ability to intercept relevant events and react to them,
-    guaranteeing the resilience of the system.
+    \item \emph{context building},
+    \item \emph{program execution}, and
+    \item \emph{export sharing}.
 \end{inlinelist}
 
-The challenges require a \emph{self-organizing and coordination} approach,
-wherein coordination abstractions solely manage logical interactions.
-%
-This ensures the emergence of global and robust patterns of correct coordination behavior.
+Globally,
+\ac{fc} aligns individual device behavior with the network's overarching behavior,
+specifying mappings for each device's computation round at space-time events.
 
-\paragraph{Field Calculus}
-To facilitate self-organization patterns of agents in complex environments,
-the concept of \emph{coordination field} has been introduced.
-%
-This abstraction serves as a navigational tool for agents over the actual environment.
 
-In this context, the tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} has been suggested
-to support field-based coordination for pervasive-computing applications.
-
-Somewhat independently of the challenge of identifying appropriate coordination models for distributed and situated systems,
-several studies have tackled analogous issues in the broader endeavor of constructing distributed intelligent systems.
+%\paragraph{Self-organization}
+%Coordination models are based on the notion that interaction among multiple independent and autonomous software systems
+%can be designed as a space orthogonal to pure computation.
+%%
+%This idea can be reified into a concept of shared data space, enabling so-called \emph{generative communication}.
 %
-This involves promoting higher abstractions of spatial collective adaptive systems.
-
-Among the studies such as for managing space-time computing models for the manipulation of distributed data structures,
-the notion of computational fields was proposed~\cite{JLAMP2019}.
+%Over the course of time, different approaches have been created,
+%such as ``Linda''~\cite{ViroliCoordination2012} and ``MARS''~\cite{mars},
+%suggesting innovative techniques for programming systems with devices of different nature,
+%focusing on the coordination of centralized local components,
+%but not on the distribution of the system.
+%%
+%The main problems that can be encountered in distributed systems are dealing with
+%\begin{inlinelist}
+%    \item openness, as unexpected environment changes,
+%    \item large scale of agents and coordination abstractions to be managed,
+%    \item intrinsic adaptiveness, such as the ability to intercept relevant events and react to them,
+%    guaranteeing the resilience of the system.
+%\end{inlinelist}
 %
-Consequently, the \ac{fc} was proposed as a foundational model for the coordination of computational devices spread in physical environments,
-also known as \ac{ac}.
+%The challenges require a \emph{self-organizing and coordination} approach,
+%wherein coordination abstractions solely manage logical interactions.
+%%
+%This ensures the emergence of global and robust patterns of correct coordination behavior.
 %
-\ac{fc} was introduced as a minimal core calculus with the aim of capturing the fundaments that make use of computational fields:
-functions over and with fields, their evolution over time and the construction of field of values from neighbors.
-
-The main concept of \ac{fc} is to specify the aggregate system behavior of a network of devices,
-where devices that can directly communicate with each other are indicated through a dynamic network relation.
+%\paragraph{Field Calculus}
+%To facilitate self-organization patterns of agents in complex environments,
+%the concept of \emph{coordination field} has been introduced.
+%%
+%This abstraction serves as a navigational tool for agents over the actual environment.
 %
-An example of its application is within a sensor network with a range of a broadcast communication.
-
-The behavior is applied through a functional composition of operators that manipulate the computational fields,
-called specification,
-that can be interpreted locally or globally.
+%In this context, the tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} has been suggested
+%to support field-based coordination for pervasive-computing applications.
 %
-A local specification can describe a computation on an individual device executed in asynchronous ``computational rounds'',
-including sending or receiving messages from neighbors,
-getting information from sensors and computing the local value of the field.
+%Somewhat independently of the challenge of identifying appropriate coordination models for distributed and situated systems,
+%several studies have tackled analogous issues in the broader endeavor of constructing distributed intelligent systems.
+%%
+%This involves promoting higher abstractions of spatial collective adaptive systems.
 %
-Each round is divided in three phases:
-\begin{inlinelist}
-    \item \emph{context building}, where the device collects information from the environment and from the messages
-    received from the neighbors, and aggregates them to build a local context;
-    \item \emph{program execution}, each device executes the program on the context;
-    \item \emph{export sharing}, the device sends messages to its neighbors, containing the results of the computation.
-\end{inlinelist}
-
-In the global view,
-a field calculus expression specifies a mapping associating each computation round of each device to the value that it assumes at that space-time event.
+%Among the studies such as for managing space-time computing models for the manipulation of distributed data structures,
+%the notion of computational fields was proposed~\cite{JLAMP2019}.
+%%
+%Consequently, the \ac{fc} was proposed as a foundational model for the coordination of computational devices spread in physical environments,
+%also known as \ac{ac}.
+%%
+%\ac{fc} was introduced as a minimal core calculus with the aim of capturing the fundaments that make use of computational fields:
+%functions over and with fields, their evolution over time and the construction of field of values from neighbors.
 %
-This dual nature inherently facilitates the alignment of individual device behavior with the overarching global behavior of the entire
-network of devices.
+%The main concept of \ac{fc} is to specify the aggregate system behavior of a network of devices,
+%where devices that can directly communicate with each other are indicated through a dynamic network relation.
+%%
+%An example of its application is within a sensor network with a range of a broadcast communication.
+%
+%The behavior is applied through a functional composition of operators that manipulate the computational fields,
+%called specification,
+%that can be interpreted locally or globally.
+%%
+%A local specification can describe a computation on an individual device executed in asynchronous ``computational rounds'',
+%including sending or receiving messages from neighbors,
+%getting information from sensors and computing the local value of the field.
+%%
+%Each round is divided in three phases:
+%\begin{inlinelist}
+%    \item \emph{context building}, where the device collects information from the environment and from the messages
+%    received from the neighbors, and aggregates them to build a local context;
+%    \item \emph{program execution}, each device executes the program on the context;
+%    \item \emph{export sharing}, the device sends messages to its neighbors, containing the results of the computation.
+%\end{inlinelist}
+%
+%In the global view,
+%a field calculus expression specifies a mapping associating each computation round of each device to the value that it assumes at that space-time event.
+%%
+%This dual nature inherently facilitates the alignment of individual device behavior with the overarching global behavior of the entire
+%network of devices.
 
 \paragraph{Aggregate Computing/Programming}
-\ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development of self-adaptive \ac{iot} services,
-based on the abstractions of the \ac{fc}~\cite{MAMEIZL04}.
 
-\ac{ac} allows to program the behavior of a distributed system by defining the interaction among the devices,
-rather than the behavior of each device.
+\ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development
+of self-adaptive \ac{iot} services,
+based on the abstractions of \ac{fc}~\cite{MAMEIZL04}.
+
+\ac{ac} programs the behavior of a distributed system by defining interactions among devices,
+rather than individual device behavior.
 %
-With this approach,
-the fundamental unit of computation switch from the single device to a collaborative group of devices.
+The fundamental computation unit shifts from a single device to a collaborative group of devices.
 
-\ac{ac} has the core idea of functionality composing collective behaviors to achieve effective and resilient complex behaviors in dynamic networks. %todo sta frase non ha un senso
+\ac{ac} composes collective behaviors to achieve effective and resilient complex behaviors in dynamic networks,
+viewing the environment as a whole programmable entity where parts collaborate to produce and consume services across space and time.
 %
-It views a given environment as a whole programmable entity whose parts collaboratively produce and consume services across space and time.
+This structure supports the specification, analysis, simulation, and runtime execution of \emph{collective} or \emph{aggregate} services,
+independently of specific \ac{iot} architectures.
 
-Therefore, its structure supports the specification, analysis, simulation and runtime execution of \emph{collective}
-or \emph{aggregate} services, independently of the specific~\ac{iot} architecture.
-
-This paradigm has three key traits that characterise it:
+The paradigm has three key traits:
 \begin{inlinelist}
-    \item \emph{global stance with global-to-local mapping}, where the target of system design is the entire distributed \ac{iot} ecosystem,
-    \item \emph{behaviour compositionality}, whereby a rich collective service can be described in terms of the functional
-        composition of simpler collective services, and
-    \item \emph{abstraction}, by which aggregate services enable adaptivity at different levels by abstracting from low-level
-        issues and details.
+    \item \emph{Global stance with global-to-local mapping}, targeting the entire distributed \ac{iot} ecosystem,
+    \item \emph{Behavior compositionality}, describing rich collective services through the functional composition of simpler services,
+    \item \emph{Abstraction}, enabling adaptivity by abstracting from low-level details.
 \end{inlinelist}
 %
-These attributes are crucial both in the design phase, where intricate solutions can frequently be articulated concisely
-and declaratively, and in the operational phase, where considerable flexibility is granted to the developers team and the
-platform regarding execution specifics and deployment strategies.
+These attributes are crucial in both the design phase, allowing concise and declarative articulation of complex solutions,
+and the operational phase, providing flexibility in execution specifics and deployment strategies.
 
-\ac{ac} enables the development of complex programs by the composing of simpler function blocks.
+\ac{ac} enables the development of complex programs by composing simpler function blocks, defining a single program for
+the entire system.
 %
-Therefore, it is defined as a single program for the entire system and every device locally evaluates it at a certain frequency,
-and sends messages with other devices that are considered neighbors in the network if needed.
+Each device locally evaluates this program at a certain frequency, communicating with neighboring devices as needed.
 
-\angela{riscrivi sta porcara}
+
+%\paragraph{Aggregate Computing/Programming}
+%\ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development of self-adaptive \ac{iot} services,
+%based on the abstractions of the \ac{fc}~\cite{MAMEIZL04}.
+%
+%\ac{ac} allows to program the behavior of a distributed system by defining the interaction among the devices,
+%rather than the behavior of each device.
+%%
+%With this approach,
+%the fundamental unit of computation switch from the single device to a collaborative group of devices.
+%
+%\ac{ac} has the core idea of functionality composing collective behaviors to achieve effective and resilient complex behaviors in dynamic networks. %todo sta frase non ha un senso
+%%
+%It views a given environment as a whole programmable entity whose parts collaboratively produce and consume services across space and time.
+%
+%Therefore, its structure supports the specification, analysis, simulation and runtime execution of \emph{collective}
+%or \emph{aggregate} services, independently of the specific~\ac{iot} architecture.
+%
+%This paradigm has three key traits that characterise it:
+%\begin{inlinelist}
+%    \item \emph{global stance with global-to-local mapping}, where the target of system design is the entire distributed \ac{iot} ecosystem,
+%    \item \emph{behaviour compositionality}, whereby a rich collective service can be described in terms of the functional
+%        composition of simpler collective services, and
+%    \item \emph{abstraction}, by which aggregate services enable adaptivity at different levels by abstracting from low-level
+%        issues and details.
+%\end{inlinelist}
+%%
+%These attributes are crucial both in the design phase, where intricate solutions can frequently be articulated concisely
+%and declaratively, and in the operational phase, where considerable flexibility is granted to the developers team and the
+%platform regarding execution specifics and deployment strategies.
+%
+%\ac{ac} enables the development of complex programs by the composing of simpler function blocks.
+%%
+%Therefore, it is defined as a single program for the entire system and every device locally evaluates it at a certain frequency,
+%and sends messages with other devices that are considered neighbors in the network if needed.
 
 \paragraph{Actual tools for Aggregate Computing}
 
