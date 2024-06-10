@@ -38,9 +38,8 @@
 % Inserire inoltre gli elementi essenziali utili a dimostrare la coerenza del tema di ricerca prescelto con il percorso di
 % formazione e le esperienze pregresse.
 %\paragraph{Collective Adaptive Systems}
-
-\sloppypar{\textbf{Collective Adaptive Systems and Macroprogramming}}
-
+\sloppypar
+\paragraph{Collective Adaptive Systems and Macroprogramming.}
 \ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors, and actuators,
 that locally interact to achieve a common global goal~\cite{ferscha2015}.
 %
@@ -115,8 +114,8 @@ Macroprogramming has been used in different contexts like \ac{wsn}~\cite{1440891
 %By declaring tasks within a specific spatio-temporal region,
 %systems can self-organize and effectively perform the task at hand,
 %allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
-
-\sloppypar{\textbf{Self-organization and Field Calculus}}
+\sloppypar
+\paragraph{Self-organization and Field Calculus.}
 
 Coordination models propose that interaction among multiple independent and autonomous software systems can be designed
 orthogonally to pure computation, conceptualized as a shared data space.
@@ -235,41 +234,34 @@ specifying mappings for each device's computation round at space-time events.
 %This dual nature inherently facilitates the alignment of individual device behavior with the overarching global behavior of the entire
 %network of devices.
 
-\sloppypar{\textbf{Aggregate Computing/Programming}}
-
+\sloppypar
+\paragraph{Aggregate Computing/Programming.}
 \ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development
 of self-adaptive \ac{iot} services,
 based on the abstractions of \ac{fc}~\cite{MAMEIZL04}.
 
-\ac{ac} programs the behavior of a distributed system by defining interactions among devices,
-rather than individual device behavior.
-%
-The fundamental computation unit shifts from a single device to an ensemble of devices.
-
-\ac{ac} composes collective behaviors to achieve effective and resilient complex behaviors in dynamic networks,
-viewing the environment as a whole programmable entity
-where parts collaborate to produce and consume services across space and time.
+\ac{ac} programs the behavior of a distributed system by defining interactions among devices as a whole,
+rather than individual device behavior,
+shifting the fundamental computation unit from a single device to a collaborative group of devices.
 %
 This structure supports the specification, analysis, simulation,
 and runtime execution of \emph{collective} or \emph{aggregate} services,
-independently of specific \ac{iot} architectures.
+independently of specific \ac{iot} architectures~\cite{FI2020-pulverization}.
 
 The paradigm has three key traits:
 \begin{inlinelist}
-    \item \emph{global stance with global-to-local mapping}, targeting the entire distributed \ac{iot} ecosystem,
-    \item \emph{behavior compositionality},
-    describing rich collective services through the functional composition of simpler services,
+    \item \emph{global stance with global-to-local mapping}, where the target of system design is the entire distributed \ac{iot} ecosystem,
+    \item \emph{service compositionality}, describing rich collective services through the functional composition of simpler services,
     \item \emph{abstraction}, enabling adaptivity by abstracting from low-level details.
 \end{inlinelist}
 %
-These attributes are crucial in both the design phase,
+These attributes are crucial in both the \emph{design phase},
 allowing concise and declarative articulation of complex solutions,
-and the operational phase, providing flexibility in execution specifics and deployment strategies.
-
-\ac{ac} enables the development of complex programs by composing simpler function blocks, defining a single program for
-the entire system.
+and the \emph{operational phase},
+providing flexibility in execution specifics and deployment strategies.
 %
-Each device locally evaluates this program at a certain frequency, communicating with neighboring devices as needed.
+Each device of the system locally evaluates the program at a certain frequency,
+and communicates with neighboring devices when needed.
 
 
 %\paragraph{Aggregate Computing/Programming}
@@ -308,7 +300,8 @@ Each device locally evaluates this program at a certain frequency, communicating
 %and sends messages with other devices that are considered neighbors in the network if needed.
 
 
-\sloppypar{\textbf{Actual tools for Aggregate Computing}}
+\sloppypar
+\paragraph{Actual tools for Aggregate Computing.}
 
 \subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
 
@@ -474,7 +467,8 @@ As a result of the research project,
 \section{Subdivision of the project and timeline}\label{sec:subdivision-of-the-project-and-timeline}
 \angela{Illustrare lo sviluppo temporale della ricerca nei 3 anni di progetto, con particolare enfasi sul primo anno.}
 
-\sloppypar{\textbf{First year}}
+\sloppypar
+\paragraph{First year}
 In the first year of the project,
 the focus is
 on investigating the state of the art of the \ac{ac} paradigm and the development of the \emph{aggregate processes} system.
@@ -484,12 +478,14 @@ The goal is to understand the issues that can arise in a cooperative environment
 Then, it is expected to develop a prototype with the basic functionalities,
 such as the management of the aggregate processes.
 
-\sloppypar{\textbf{Second year}}
+\sloppypar
+\paragraph{Second year}
 In the second year,
 the goal is to expand the functionalities of the system to manage multi-user,
 rights and permissions, and aggregate peripherals devices.
 
-\sloppypar{\textbf{Third year}}
+\sloppypar
+\paragraph{Third year}
 In the third and final year,
 the goal is to use the final prototype of the system in simulated real-world scenarios
 and to evaluate its performance and effectiveness.
