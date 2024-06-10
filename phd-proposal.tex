@@ -303,6 +303,43 @@ and communicates with neighboring devices when needed.
 \sloppypar
 \paragraph{Actual tools for Aggregate Computing.}
 
+Different tools have been developed to support the \ac{ac} paradigm,
+each with its own characteristics and target devices.
+
+\emph{ScaFi (Scala Fields)}\cite{scafi} is a Scala-based framework for aggregate programming,
+it provides a \ac{dsl}, libraries, a simulation environment with a GUI,
+integrated with the Alchemist simulator~\cite{PianiniJOS2013},
+and an actor-based runtime for the development of aggregate computing-based systems.
+%
+ScaFi is capable of running aggregate programs on the \ac{jvm} and also on web browser thanks to the ScaFi Web tool~\cite{Coordination2021-scafiweb},
+which allows the rapid prototyping of aggregate programs.
+
+\emph{Protelis}~\cite{PianiniSAC2015} is a functional programming language that implements a higher-order version of the \ac{fc},
+exposed through a C-like syntax,
+enabling the construction of widely reusable components of aggregate systems.
+%
+It also provides various domain-specific APIs that are interoperable with Java, the Protelis-Lang~\cite{SASO2017-protelislang}.
+%
+Being based on \emph{Xtext},
+it necessarily requires a \ac{jvm} to run,
+which limits the heterogeneity of devices that can be used in the system.
+
+\emph{FCPP}~\cite{DBLP:journals/scp/AudritoT24} is an implementation of the \ac{fc} as a C++ library,
+with tools for simulations of distributed systems.
+%
+It allows running aggregate programs on low computational capacity devices.
+%
+However,
+its syntax is less ergonomic compared to other languages,
+making it unlikely to reach a mainstream developer audience.
+
+\emph{Collektive} is a \ac{dsl} for aggregate computing that extends the \ac{fc} with the \ac{xc}~\cite{AudritoCDSV24},
+providing a more expressive language for the development of aggregate systems.
+%
+\ac{xc} is an experimental programming language design to develop homogeneous distributed systems.
+%
+The aim of this experimental language is to push the abstraction boundaries further than actual existing approaches.
+
 \subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
 
 The research project proposed can be seen as an extension of the research activities
@@ -323,7 +360,7 @@ This work provided me with a good foundation in the field of \ac{ac} and \ac{fc}
 The Master's thesis was also focused on the \ac{ac} paradigm.
 %
 The goal of the thesis was to expand the work done on the Collektive \ac{dsl} previously developed,
-by adding the constructs of the \emph{eXchange Calculus}~\cite{AudritoCDSV24} to the language. \angela{todo explain xc and collektive?}
+by adding the constructs of the \ac{xc} to the language.
 %
 At the end of the thesis, a prototype of the language was ready and tested on simple case study,
 showing the potential of the language in the development of \ac{ac} applications.
