@@ -39,30 +39,44 @@
 % formazione e le esperienze pregresse.
 %\paragraph{Collective Adaptive Systems}
 
-\paragraph{Collective Adaptive Systems and Macroprogramming}
+\sloppypar{\textbf{Collective Adaptive Systems and Macroprogramming}}
 
 \ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors, and actuators,
-that interact to achieve a common goal~\cite{ferscha2015}.
+that locally interact to achieve a common global goal~\cite{ferscha2015}.
 %
 These systems adjust to changes in the environment, system requirements, or operational conditions.
 %
 \ac{cas} are frequently used in \ac{cps} applications,
 where devices collaborate to monitor and control a physical environment or provide a service to users.
 
-Coordination in \ac{cas} is challenging due to device heterogeneity, resource constraints, and the need to adapt to dynamic changes.
+Managing a single device in a distributed system can be challenging for several reasons,
+such as \textbf{scalability}, \textbf{device heterogeneity},
+\textbf{resource constraints}, and the need to adapt to \textbf{dynamic changes}.
+%
+Transitioning from a \emph{device-centric} approach,
+where the collective is not the abstraction target,
+to an \emph{aggregate-centric} approach can lead to various advantages, like
+\begin{inlinelist}
+    \item distributed intelligence,
+    \item resource pooling,
+    \item adaptability, and
+    \item robustness.
+\end{inlinelist}
 %
 The mentioned challenges can be addressed by using \emph{macroprogramming}.
 
-\emph{Macroprogramming}~\cite{casadei2023} refers to expressing the macroscopic behavior of a system through a single program using
+\emph{Macroprogramming}~\cite{casadei2023} refers
+to expressing the macroscopic behavior of a system through a single program using
 macro-level abstractions.
 %
 This approach captures system-level behavior while abstracting individual component interactions.
 %
-It simplifies developing systems with many interconnected sensors, actuators, and smart devices,
-applicable in contexts like \ac{iot} and \ac{cps}.
+Macroprogramming has been used in different contexts like \ac{wsn}~\cite{1440891}, \ac{iot} applications~\cite{noor19,mizzi18} and swarm robotics~\cite{buzz}.
 
-Macroprogramming promotes collective behavior properties, such as self-organization and self-configuration, by declaring
-tasks within specific spatio-temporal regions, allowing systems to dynamically adapt to their deployment and spatial positions.
+%
+%Macroprogramming promotes collective behavior properties, such as self-organization and self-configuration, by declaring
+%tasks within specific spatio-temporal regions,
+%allowing systems to dynamically adapt to their deployment and spatial positions.
 
 %
 %\ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
@@ -102,18 +116,20 @@ tasks within specific spatio-temporal regions, allowing systems to dynamically a
 %systems can self-organize and effectively perform the task at hand,
 %allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
 
-\paragraph{Self-organization and Field Calculus}
+\sloppypar{\textbf{Self-organization and Field Calculus}}
 
 Coordination models propose that interaction among multiple independent and autonomous software systems can be designed
-orthogonally to pure computation, conceptualized as a shared data space enabling \emph{generative communication}.
-
-Over time, various approaches like "Linda"~\cite{ViroliCoordination2012} and "MARS"~\cite{mars} have emerged,
+orthogonally to pure computation, conceptualized as a shared data space.
+%
+Over time,
+various approaches like \textit{Linda}~\cite{ViroliCoordination2012} and \textit{MARS}~\cite{mars} have emerged,
 focusing on centralized local components rather than system distribution.
-
+%
 Key challenges in distributed systems include openness to environmental changes, large-scale agent coordination,
 and intrinsic adaptiveness to ensure system resilience.
 %
-Addressing these challenges requires a \emph{self-organization and -coordination} approach, managing logical interactions to
+Addressing these challenges requires a \emph{self-organization and -coordination} approach,
+managing logical interactions to
 ensure global and robust coordination behavior.
 
 To facilitate self-organization in complex environments, the \emph{coordination field} concept was introduced as a
@@ -121,11 +137,11 @@ navigational tool for agents.
 %
 The tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} supports field-based coordination in pervasive
 computing applications.
-
+%
 Independently, studies on distributed intelligent systems proposed computational fields for managing space-time
 computing models~\cite{JLAMP2019}.
 
-\ac{fc} emerged as a foundational model for coordinating computational devices in physical environments.
+\ac{fc}~\cite{TOCL2019} emerged as a foundational model for coordinating computational devices in physical environments.
 %
 It specifies aggregate system behavior through a dynamic network of directly communicating devices,
 using functional compositions of operators manipulating computational fields.
@@ -136,7 +152,7 @@ Local specifications involve asynchronous computational rounds with three phases
     \item \emph{program execution}, and
     \item \emph{export sharing}.
 \end{inlinelist}
-
+%
 Globally,
 \ac{fc} aligns individual device behavior with the network's overarching behavior,
 specifying mappings for each device's computation round at space-time events.
@@ -216,7 +232,7 @@ specifying mappings for each device's computation round at space-time events.
 %This dual nature inherently facilitates the alignment of individual device behavior with the overarching global behavior of the entire
 %network of devices.
 
-\paragraph{Aggregate Computing/Programming}
+\sloppypar{\textbf{Aggregate Computing/Programming}}
 
 \ac{ap} (or \ac{ac})~\cite{CASADEI2019252} is a functional macroprogramming approach for the compositional development
 of self-adaptive \ac{iot} services,
@@ -228,19 +244,23 @@ rather than individual device behavior.
 The fundamental computation unit shifts from a single device to a collaborative group of devices.
 
 \ac{ac} composes collective behaviors to achieve effective and resilient complex behaviors in dynamic networks,
-viewing the environment as a whole programmable entity where parts collaborate to produce and consume services across space and time.
+viewing the environment as a whole programmable entity
+where parts collaborate to produce and consume services across space and time.
 %
-This structure supports the specification, analysis, simulation, and runtime execution of \emph{collective} or \emph{aggregate} services,
+This structure supports the specification, analysis, simulation,
+and runtime execution of \emph{collective} or \emph{aggregate} services,
 independently of specific \ac{iot} architectures.
 
 The paradigm has three key traits:
 \begin{inlinelist}
     \item \emph{global stance with global-to-local mapping}, targeting the entire distributed \ac{iot} ecosystem,
-    \item \emph{behavior compositionality}, describing rich collective services through the functional composition of simpler services,
+    \item \emph{behavior compositionality},
+    describing rich collective services through the functional composition of simpler services,
     \item \emph{abstraction}, enabling adaptivity by abstracting from low-level details.
 \end{inlinelist}
 %
-These attributes are crucial in both the design phase, allowing concise and declarative articulation of complex solutions,
+These attributes are crucial in both the design phase,
+allowing concise and declarative articulation of complex solutions,
 and the operational phase, providing flexibility in execution specifics and deployment strategies.
 
 \ac{ac} enables the development of complex programs by composing simpler function blocks, defining a single program for
@@ -285,11 +305,15 @@ Each device locally evaluates this program at a certain frequency, communicating
 %and sends messages with other devices that are considered neighbors in the network if needed.
 
 
+\sloppypar{\textbf{Actual tools for Aggregate Computing}}
+
 \subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
 
-The research project proposed can be seen as an extension of the research activities carried out during the Master's degree.
+The research project proposed can be seen as an extension of the research activities
+carried out during the Master's degree.
 
-During the Master's degree, the exploration of \ac{fc} and \ac{ac} began as a project of the course ``Pervasive Computing''.
+During the Master's degree,
+the exploration of \ac{fc} and \ac{ac} began as a project of the course ``Pervasive Computing''.
 %
 My project's colleagues and I developed a prototype of the ScaFi's engine in Rust,
 more specifically the core of the engine inherent to the \ac{fc}.
@@ -327,7 +351,8 @@ about a generalization of the \emph{Vascular Morphogenesis Controller} (VMC) alg
 %
 Another paper is currently under submission to the \emph{International Symposium on Distributed Simulation and Real Time Applications} (DS-RT 2024).
 %
-It is about the development of an architecture and prototype for monitoring distributed simulations of distributed systems,
+It is about the development of an architecture and prototype
+for monitoring distributed simulations of distributed systems,
 where my contribution consists of the development of the simulation used in the evaluation of the architecture,
 done using \emph{Collektive}.
 
@@ -342,9 +367,11 @@ but few studies have been conducted to effectively develop such systems.
 Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 -- poses a significant challenge that is increasingly necessary.
 %
-To address this, a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
+To address this,
+a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
 %
-Aggregate processes are concurrent field computations whose execution and interactions are sustained by a dynamic team of devices,
+Aggregate processes are concurrent field computations
+whose execution and interactions are sustained by a dynamic team of devices,
 and whose spatial region can opportunistically change over time.
 %
 This concept captures
@@ -409,7 +436,8 @@ such as the management of:
     \item \textbf{signals}: the management of the interruption of the processes and the communication between them.
 \end{itemize}
 
-Managing those features with the \ac{ac} paradigm allows writing a single program for the expected behavior of the system,
+Managing those features with the \ac{ac} paradigm allows
+writing a single program for the expected behavior of the system,
 even if there are different mechanisms behind the various devices involved.
 %
 In this way,
@@ -437,28 +465,29 @@ or even the system can manage the lighting of the city based on the presence of 
 e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.}
 As a result of the research project,
 
-
-
 % ----------------------------------------
 \section{Subdivision of the project and timeline}\label{sec:subdivision-of-the-project-and-timeline}
 \angela{Illustrare lo sviluppo temporale della ricerca nei 3 anni di progetto, con particolare enfasi sul primo anno.}
 
-\paragraph{First year}
+\sloppypar{\textbf{First year}}
 In the first year of the project,
-the focus is on investigating the state of the art of the \ac{ac} paradigm and the development of the \emph{aggregate processes} system.
+the focus is
+on investigating the state of the art of the \ac{ac} paradigm and the development of the \emph{aggregate processes} system.
 %
 The goal is to understand the issues that can arise in a cooperative environment and to address them.
 
 Then, it is expected to develop a prototype with the basic functionalities,
 such as the management of the aggregate processes.
 
-\paragraph{Second year}
+\sloppypar{\textbf{Second year}}
 In the second year,
-the goal is to expand the functionalities of the system to manage multi-user, rights and permissions, and aggregate peripherals devices.
+the goal is to expand the functionalities of the system to manage multi-user,
+rights and permissions, and aggregate peripherals devices.
 
-\paragraph{Third year}
+\sloppypar{\textbf{Third year}}
 In the third and final year,
-the goal is to use the final prototype of the system in simulated real-world scenarios and to evaluate its performance and effectiveness.
+the goal is to use the final prototype of the system in simulated real-world scenarios
+and to evaluate its performance and effectiveness.
 
 % ----------------------------------------
 \section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
