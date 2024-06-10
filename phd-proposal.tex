@@ -285,16 +285,6 @@ Each device locally evaluates this program at a certain frequency, communicating
 %Therefore, it is defined as a single program for the entire system and every device locally evaluates it at a certain frequency,
 %and sends messages with other devices that are considered neighbors in the network if needed.
 
-\paragraph{Actual tools for Aggregate Computing}
-
-\subparagraph{ScaFi}
-
-\subparagraph{Protelis}
-
-\subparagraph{FCPP}
-
-\subparagraph{Collektive}
-
 
 \subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
 
@@ -351,7 +341,8 @@ The objective of creating a new generation of operative systems based on \emph{c
 for opportunistic mobile applications and services is well known in literature,
 but few studies have been conducted to effectively develop such systems.
 
-Managing multiple concurrent aggregate operations poses a significant challenge that is increasingly necessary.
+Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
+-- poses a significant challenge that is increasingly necessary.
 %
 To address this, a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
 %
@@ -433,10 +424,24 @@ allowing for a more abstract and high-level programming approach and to involve 
 The paradigm itself of \ac{ac} offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
+An example of application of the system could be in the management of a drone fleet,
+where the drones have to collaborate to achieve a common goal,
+such as monitoring a specific area,
+but the operating system sees them as a single ``sensor'',
+in this way the abstraction of the system is higher and the management of the system is easier.
+
+Or even in the management of a smart city,
+where the system has to manage the data of the city and the users,
+there may be the need to monitor parking lots so a user can find a free one,
+or officers can manage the traffic in the city,
+or even the system can manage the lighting of the city based on the presence of people in the streets.
+
 % ----------------------------------------
 \section{Expected results}\label{sec:expected-results}
 %Descrivere sinteticamente quale apporto la ricerca può fornire all’avanzamento delle conoscenze scientifico-tecnologiche
 %e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.
+As a result of the research project,
+
 
 
 % ----------------------------------------
