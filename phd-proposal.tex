@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage[inkscapeformat=pdf]{svg}
 \usepackage[inline]{enumitem}
 \usepackage[hidelinks]{hyperref}
 
@@ -22,7 +23,8 @@
 \begin{document}
 
 %\title{Towards aggregate operative systems with Aggregate Computing}
-\title{Towards cooperative operative environments with Aggregate Computing}
+\title{Towards cooperative systems with Aggregate Computing}
+%\title{Towards cooperative operative environments with Aggregate Computing}
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
@@ -31,7 +33,8 @@
 %\setlength{\parskip}{1em}
 
 % ----------------------------------------
-\section{State of the art}\label{sec:state-of-the-art}
+\section{State of the art}
+\label{sec:state-of-the-art}
 % Esporre sinteticamente lo “stato dell’arte” relativamente al tema di ricerca prescelto,
 % con le indicazioni bibliografiche essenziali.
 % Se il progetto fa parte di una ricerca più ampia, evidenziare in modo specifico l’attività specifica che ci si propone di svolgere.
@@ -229,7 +232,8 @@ to develop homogeneous distributed systems.
 %
 The aim of this experimental language is to push the abstraction boundaries further than actual existing approaches.
 
-\subsection{Coherence with the educational path}\label{subsec:coherence-with-the-educational-path}
+\subsection{Coherence with the educational path}
+\label{subsec:coherence-with-the-educational-path}
 
 The research project proposed can be seen as an extension of the research activities
 carried out during the Master's degree.
@@ -278,7 +282,8 @@ where my contribution consists of the development of the simulation used in the 
 done using Collektive.
 
 % ----------------------------------------
-\section{Project description}\label{sec:project-description}
+\section{Project description}
+\label{sec:project-description}
 \angela{Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la pianificazione sperimentale per perseguire gli obiettivi prefissati.}
 
 \sloppypar
@@ -392,15 +397,58 @@ or officers can manage the traffic in the city,
 or even the system can manage the lighting of the city based on the presence of people in the streets.
 
 % ----------------------------------------
-\section{Expected results}\label{sec:expected-results}
+\section{Expected results}
+\label{sec:expected-results}
 \angela{Descrivere sinteticamente quale apporto la ricerca può fornire all’avanzamento delle conoscenze scientifico-tecnologiche
-e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.}
-As a result of the research project,
+e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.
+date delle metriche devo trovare un confronto a quelle dove vado a migliorare}
 
-%date delle metriche devo trovare in confronto a quelle dove vado a migliorare
+As one of the results of the research project,
+it is expected to develop a prototype of the system that is able to manage in a simple and effective way
+some of the problems that arise in a cooperative environment.
+%
+For instance,
+one of the problems presented involves communication between ships in the Kiel Canal
+and the amount of data that they can exchange depending on the type of communication available.
+%
+Specifically,
+the farther apart the ships are,
+the fewer data they can automatically exchange.
+%
+Currently,
+this issue remains unresolved in an effective manner.
+%
+Therefore,
+it is believed that through \ac{ac},
+and particularly through the use of \ac{xc},
+a contribution can be made towards solving this problem.
+
+As a long-term vision,
+the system will be able to manage many devices in a cooperative environment,
+where the devices can be heterogeneous and can change over time.
+%
+As seen in ~\Cref{fig:example-of-application},
+some of the application scenarios where the system can be used are
+\begin{inlinelist}
+    \item \emph{smart cities},
+    \item \emph{swarm scenarios},
+    \item \emph{crowd management},
+    \item \emph{morphogenesis},
+    \item \emph{autonomous vehicles},
+    \item \emph{surveillance}.
+\end{inlinelist}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/devices}
+    \caption{Long-term vision of the capabilities of the system related to the quantity of devices involved.}
+    \label{fig:example-of-application}
+\end{figure}
+
 
 % ----------------------------------------
-\section{Subdivision of the project and timeline}\label{sec:subdivision-of-the-project-and-timeline}
+\section{Subdivision of the project and timeline}
+\label{sec:subdivision-of-the-project-and-timeline}
 \angela{Illustrare lo sviluppo temporale della ricerca nei 3 anni di progetto, con particolare enfasi sul primo anno.}
 
 \sloppypar
@@ -430,6 +478,13 @@ and to evaluate its performance and effectiveness.
 \section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
 \angela{Descrivere sinteticamente quali modalità si intendono utilizzare durante lo svolgimento del progetto per il monitoraggio
 e la valutazione del raggiungimento dei risultati attesi.}
+Some of the evaluation criteria that can be used to monitor and evaluate the progress of the project are:
+\begin{inlinelist}
+    \item \emph{correctness}, to ensure that the system behaves as expected,
+    \item \emph{scalability}, to ensure that the system can manage a large number of devices,
+    \item \emph{resilience and fault tolerance}, to ensure that the system can recover from failures,
+    \item the effective \emph{managing of self-organization}, to ensure that the system can adapt to the dynamic changes of the environment.
+\end{inlinelist}
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
