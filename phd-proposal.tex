@@ -280,14 +280,59 @@ done using Collektive.
 % ----------------------------------------
 \section{Project description}\label{sec:project-description}
 \angela{Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la pianificazione sperimentale per perseguire gli obiettivi prefissati.}
-The objective of creating a new generation of operative systems based on \emph{cooperative operative environment}
+
+\sloppypar
+\paragraph{Introduction.}
+To coordinate \ac{cas} scenarios in an efficient and effective way,
+there is the need to push the abstraction boundaries further than actual existing approaches.
+%
+This can be achieved by developing a new generation of self-organizing cooperative systems.
+%
+Those systems should be able to manage the classical functionalities of an operative system,
+such as the management of the devices, the file system, the users, the permissions, and the signals;
+while being able to manage the complexity of the environment, the heterogeneity of the devices involved,
+and to adapt to the dynamic changes of the environment.
+%
+The goal of creating a new generation of operative systems based on \emph{cooperative operative environment}
 for opportunistic mobile applications and services is well known in literature,
 but few studies have been conducted to effectively develop such systems.
-
+%
 Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 -- poses a significant challenge that is increasingly necessary.
+
+\sloppypar
+\paragraph{Research goal.}
+The proposed research project aims to investigate the development of \emph{aggregate operative systems},
+based on the \ac{ac} paradigm.
 %
-To address this,
+The project will focus on capturing some of the key features and roles of an operative system with the \ac{ac} paradigm,
+such as the management of:
+\begin{itemize}
+    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common goal as a single
+    entity or logical resource (sensor and actuation fusion);
+    \item \textbf{file system}: there are distributed data that should be put together and managed as a single entity,
+    there are already some technologies with this aim, but the aim is to get a right level of abstraction to manage the data
+    without knowing the underlying technology;
+    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
+    \item \textbf{permissions}: access to resources and services based on the role of the user relative to the context in which they are located;
+    \item \textbf{signals}: the management of the interruption of the processes and the communication between them.
+\end{itemize}
+
+Managing those features with the \ac{ac} paradigm allows
+writing a single program for the expected behavior of the system,
+even if there are different mechanisms behind the various devices involved.
+%
+In this way,
+the software developer does not have to worry about the underlying technology while developing the logic of the system,
+allowing for a more abstract and high-level programming approach and to involve heterogeneous devices in the system.
+%
+The paradigm itself of \ac{ac} offers consistency and resilience to failures,
+and the possibility to adapt to \emph{dynamic} changes in the environment.
+
+\sloppypar
+\paragraph{Actual functionalities of the system.}
+%
+To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
 a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
 %
 Aggregate processes are concurrent field computations
@@ -315,7 +360,7 @@ However,
 there may be situations where a single device decides to terminate processes or where a process using shared
 resources loses the right to use them during execution,
 introducing a distributed consensus problem.
-
+%
 In practical cases, there may be situations of crowd sensing or crowd steering where,
 eventually,
 law enforcement realizes that too many people are gathering.
@@ -327,38 +372,13 @@ Another matter not yet addressed is the management of the users in an aggregate 
 %
 There is the need to understand what does it mean to have a user in an aggregate environment,
 and how to manage the permissions of the users in the system.
-
+%
 Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
 the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
 of a new generation of operative systems arises.
-%
-The proposed research project aims to investigate the development of \emph{aggregate operative systems},
-based on the \ac{ac} paradigm.
-%
-The project will focus on capturing some of the key features and roles of an operative system with the \ac{ac} paradigm,
-such as the management of:
-\begin{itemize}
-    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common goal as a single
-        entity or logical resource (sensor and actuation fusion);
-    \item \textbf{file system}: there are distributed data that should be put together and managed as a single entity,
-        there are already some technologies with this aim, but the aim is to get a right level of abstraction to manage the data
-        without knowing the underlying technology;
-    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
-    \item \textbf{permissions}: access to resources and services based on the role of the user relative to the context in which they are located;
-    \item \textbf{signals}: the management of the interruption of the processes and the communication between them.
-\end{itemize}
 
-Managing those features with the \ac{ac} paradigm allows
-writing a single program for the expected behavior of the system,
-even if there are different mechanisms behind the various devices involved.
-%
-In this way,
-the software developer does not have to worry about the underlying technology while developing the logic of the system,
-allowing for a more abstract and high-level programming approach and to involve heterogeneous devices in the system.
-
-The paradigm itself of \ac{ac} offers consistency and resilience to failures,
-and the possibility to adapt to \emph{dynamic} changes in the environment.
-
+\sloppypar
+\paragraph{Example of application.}
 An example of application of the system could be in the management of a drone fleet,
 where the drones have to collaborate to achieve a common goal,
 such as monitoring a specific area,
