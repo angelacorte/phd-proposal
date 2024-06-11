@@ -23,9 +23,9 @@
 \begin{document}
 
 %\title{Towards aggregate operating systems with Aggregate Computing}
-%\title{Towards cooperative systems with Aggregate Computing}
+%\title{Towards collective systems with Aggregate Computing}
 \title{Towards collective operating systems through Aggregate Computing}
-%\title{Towards cooperative operative environments with Aggregate Computing}
+%\title{Towards collective operative environments with Aggregate Computing}
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
@@ -76,48 +76,6 @@ This approach captures system-level behavior while abstracting individual compon
 %
 Macroprogramming has been used in different contexts like \ac{wsn}~\cite{1440891}, \ac{iot} applications~\cite{noor19,mizzi18} and swarm robotics~\cite{buzz}.
 
-%
-%Macroprogramming promotes collective behavior properties, such as self-organization and self-configuration, by declaring
-%tasks within specific spatio-temporal regions,
-%allowing systems to dynamically adapt to their deployment and spatial positions.
-
-%
-%\ac{cas} are systems composed of multiple autonomous entities, such as devices, sensors and actuators,
-%that interact to achieve a common goal~\cite{ferscha2015}.
-%%
-%These systems are known for their ability to adjust to changes in the environment,
-%systems requirements, or operational conditions.
-%
-%\ac{cas} are frequently used in \ac{cps} applications,
-%where devices collaborate to achieve a common goal,
-%such as monitoring and controlling a physical environment or providing a service to users.
-%%
-%The coordination of devices in \ac{cas} can be challenging due to the heterogeneity of the devices involved,
-%resource constraints, and the need to adapt to dynamic changes in the environment.
-%
-%Macroprogramming can be used to promote collective behaviors,
-%leveraging high-level abstractions and constructs to facilitate global coordination,
-%decentralized control, and adaptability in complex systems.
-%
-%
-%\paragraph{Macroprogramming}
-%The term \emph{macroprogramming}~\cite{casadei2023} refers to the concept of expressing the macroscopic behavior of a system
-%through a single program,
-%usually leveraging on macro-level abstractions.
-%%
-%This paradigm is driven by the need to capture \emph{system-level behavior} while abstracting the behavior and interaction
-%of the individual components involved.
-%%
-%Macroprogramming approaches have been suggested to simplify the development of systems involving many interconnected sensors,
-%actuators, and smart devices;
-%they can be applied in context like \ac{iot} and \ac{cps}.
-%
-%Macroprogramming abstractions can promote collective behavior properties,
-%such as self-organizing or self-configuring in the context of \ac{cas}.
-%%
-%By declaring tasks within a specific spatio-temporal region,
-%systems can self-organize and effectively perform the task at hand,
-%allowing for dynamic adaptation to the current deployment and spatial position of the components involved.
 \sloppypar
 \paragraph{Self-organization and Field Calculus.}
 
@@ -193,7 +151,7 @@ Each device of the system locally evaluates the program at a certain frequency,
 and communicates with neighboring devices when needed.
 
 \sloppypar
-\paragraph{Actual tools for Aggregate Computing.}
+\paragraph{Tools for Aggregate Computing.}
 
 Different tools have been developed to support the \ac{ac} paradigm,
 each with its own characteristics and target devices.
@@ -225,13 +183,12 @@ However,
 its syntax is less ergonomic compared to other languages,
 making it unlikely to reach a mainstream developer audience.
 
-\emph{Collektive} is a \ac{dsl} for aggregate computing that extends the \ac{fc} with the \ac{xc}~\cite{AudritoCDSV24},
+\emph{Collektive} is a prototype \ac{dsl} for aggregate computing that extends the \ac{fc} with the \ac{xc}~\cite{AudritoCDSV24},
 providing a more expressive language for the development of aggregate systems.
 %
-\ac{xc} is an experimental programming language design based on the \ac{fc} model,
-to develop homogeneous distributed systems.
-%
-The aim of this experimental language is to push the abstraction boundaries further than actual existing approaches.
+This language is more modern and has a user-friendly syntax compared to FCPP and Protelis;
+moreover, it is natively multi-platform,
+allowing the development of aggregate systems on different devices.
 
 \subsection{Coherence with my previous experiences}
 \label{subsec:coherence-with-the-educational-path}
@@ -288,23 +245,30 @@ done using Collektive.
 \angela{Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la pianificazione sperimentale per perseguire gli obiettivi prefissati.}
 
 \sloppypar
-\paragraph{Introduction.}
+\paragraph{Motivations.}
 To coordinate \ac{cas} scenarios in an efficient and effective way,
 there is the need to push the abstraction boundaries further than actual existing approaches.
 %
-This can be achieved by developing a new generation of self-organizing cooperative systems.
+This can be achieved by developing a new generation of self-organizing collective systems.
 %
 Those systems should be able to manage the classical functionalities of an operating system,
 such as the management of the devices, the file system, the users, the permissions, and the signals;
 while being able to manage the complexity of the environment, the heterogeneity of the devices involved,
 and to adapt to the dynamic changes of the environment.
 %
-The goal of creating a new generation of operating systems based on \emph{cooperative operative environment}
+The goal of creating a new generation of operating systems based on \emph{collective operating environment}
 for opportunistic mobile applications and services is well known in literature,
 but few studies have been conducted to effectively develop such systems.
 %
 Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 -- poses a significant challenge that is increasingly necessary.
+
+Classic aggregate programs are designed to be executed on different devices, independently of external factors;
+this could be restricting in some scenarios.
+%
+There are situations where the execution of the program should be influenced by external entities,
+or where there might be the need to inject processes to inform some devices to execute other tasks,
+rather than the one they were executing.
 
 \sloppypar
 \paragraph{Research goal.}
@@ -404,9 +368,13 @@ or even the system can manage the lighting of the city based on the presence of 
 e le eventuali ricadute sulla società, ponendo in rilievo i profili di originalità dei risultati attesi.
 date delle metriche devo trovare un confronto a quelle dove vado a migliorare}
 
-As one of the results of the research project,
-it is expected to develop a prototype of the system that is able to manage in a simple and effective way
-some of the problems that arise in a cooperative environment.
+As results of the proposed research project,
+it is expected to bring
+\begin{inlinelist}
+    \item a contribution to the advancement of scientific and technological knowledge in the field of \ac{ac} and \ac{cas},
+    \item a formal model of how it should work,
+    \item a prototype of the system that is able to manage in a simple and effective way some of the problems that arise in a collective environment.
+\end{inlinelist}
 %
 For instance,
 one of the problems presented involves communication between ships in the Kiel Canal
@@ -425,7 +393,7 @@ and particularly through the use of \ac{xc},
 a contribution can be made towards solving this problem.
 
 As a long-term vision,
-the system will be able to manage many devices in a cooperative environment,
+the system will be able to manage many devices in a collective environment,
 where the devices can be heterogeneous and can change over time.
 %
 As seen in ~\Cref{fig:example-of-application},
@@ -439,18 +407,16 @@ some of the application scenarios where the system can be used are
     \item \emph{surveillance}.
 \end{inlinelist}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/devices}
-    \caption{Long-term vision of the capabilities of the system related to the quantity of devices involved.}
-    \label{fig:example-of-application}
-\end{figure}
-
-
 % ----------------------------------------
 \section{Subdivision of the project and timeline}
 \label{sec:subdivision-of-the-project-and-timeline}
 \angela{Illustrare lo sviluppo temporale della ricerca nei 3 anni di progetto, con particolare enfasi sul primo anno.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/timeline}
+    \caption{Timeline of the project.}
+\end{figure}
 
 \sloppypar
 \paragraph{First year}
@@ -458,7 +424,7 @@ In the first year of the project,
 the focus is
 on investigating the state of the art of the \ac{ac} paradigm and the development of the \emph{aggregate processes} system.
 %
-The goal is to understand the issues that can arise in a cooperative environment and to address them.
+The goal is to understand the issues that can arise in a collective environment and to address them.
 
 Then, it is expected to develop a prototype with the basic functionalities,
 such as the management of the aggregate processes.
