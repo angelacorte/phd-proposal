@@ -262,6 +262,7 @@ but few studies have been conducted to effectively develop such systems.
 %
 Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 -- poses a significant challenge that is increasingly necessary.
+%
 
 Classic aggregate programs are designed to be executed on different devices, independently of external factors;
 this could be restrictive in some scenarios.
@@ -348,7 +349,7 @@ the idea of exploring and expanding the concept on the basis of \emph{aggregate 
 of a new generation of operating systems arises.
 
 \sloppypar
-\paragraph{Example of application.}
+\paragraph{Example applications.}
 An example of application of the system could be in the management of a drone fleet,
 where the drones have to collaborate to achieve a common goal,
 such as monitoring a specific area,
@@ -415,43 +416,64 @@ some of the application scenarios where the system can be used are
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{figures/timeline}
-    \caption{Timeline of the project.}
+    \caption{Hypothetical timeline of the three years of the project.
+        Years are subdivided in quarters, Q1 is from January to March,
+        Q2 is from April to June, Q3 is from July to September, and Q4 is from October to December.
+    }\label{fig:timeline}
 \end{figure}
+
+In the \Cref{fig:timeline} is shown a hypothetical timeline with tasks of the three years of the project,
+where each year is subdivided into quarters.
 
 \sloppypar
 \paragraph{First year}
 In the first year of the project,
-the focus is
-on investigating the state of the art of the \ac{ac} paradigm and the development of the \emph{aggregate processes} system.
-%
-The goal is to understand the issues that can arise in a collective environment and to address them.
 
-Then, it is expected to develop a prototype with the basic functionalities,
-such as the management of the aggregate processes.
+it is essential to thoroughly investigate the state of the art and create a simplified model of how the new system should work.
+%
+Following this,
+the actual development process begins with the implementation of the aggregated processes in the target language Collektive.
+%
+From this foundation,
+the development of concepts such as permissions, user management, and signal management can begin,
+with these elements being conceptually interconnected.
+%
+All of this will contribute to the creation of an initial system prototype.
 
 \sloppypar
 \paragraph{Second year}
-In the second year,
-the goal is to expand the functionalities of the system to manage multi-user,
-rights and permissions, and aggregate peripherals devices.
+In the second year of the project,
+the focus will be on continuing the development of the prototype,
+expanding on the concepts investigated in the first year,
+and incorporating features such as runtime aggregate programs injection.
+%
+Towards the end of this period,
+the extended model of the Collektive operating system will be drafted,
+with a focus on collective sensing of external devices.
 
 \sloppypar
 \paragraph{Third year}
-In the third and final year,
-the goal is to use the final prototype of the system in simulated real-world scenarios
-and to evaluate its performance and effectiveness.
+In the third year,
+use cases will be further investigated,
+leading to their actual implementation and testing,
+initially in simulated environments and to evaluate performances and effectiveness.
 
 % ----------------------------------------
 \section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
 \angela{Descrivere sinteticamente quali modalità si intendono utilizzare durante lo svolgimento del progetto per il monitoraggio
 e la valutazione del raggiungimento dei risultati attesi.}
-Some of the evaluation criteria that can be used to monitor and evaluate the progress of the project are:
-\begin{inlinelist}
-    \item \emph{correctness}, to ensure that the system behaves as expected,
-    \item \emph{scalability}, to ensure that the system can manage a large number of devices,
-    \item \emph{resilience and fault tolerance}, to ensure that the system can recover from failures,
-    \item the effective \emph{managing of self-organization}, to ensure that the system can adapt to the dynamic changes of the environment.
-\end{inlinelist}
+As evaluation criteria,
+it can be considered the effective functioning of the system in simulated scenarios,
+having a demonstration with heterogeneous devices with the ability to manage a large number of devices,
+and at the end of the third year may be considered the possibility of a real-world test with drones or other devices.
+%
+Furthermore,
+it can be used as a metric the amount of scientific contributions that the project brings to ``self-organizing systems'' communities,
+such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
+or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
+%
+Some practical examples of what the system should be able to do are forcing the termination of a process from an entity with the right permissions,
+or effectively injecting code into a process to change its behavior.
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
