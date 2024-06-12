@@ -245,7 +245,24 @@ done using Collektive.
 \angela{Esporre la finalità della ricerca e descrivere in maniera sintetica la metodologia d’indagine prescelta e la pianificazione sperimentale per perseguire gli obiettivi prefissati.}
 
 \sloppypar
-\paragraph{Motivations.}
+\paragraph{Motivation.}
+
+Typical applications of aggregate computing implement and execute a single, albeit complex, algorithm.
+%
+However,
+there are scenarios where these aggregated algorithms need to be added, removed,
+or manipulated at runtime without affecting the others.
+%
+For example,
+in a crowd management situation where people are directed to move in a certain direction,
+congestion might occur,
+necessitating law enforcement to alter the movement of a portion of the crowd.
+
+This concept parallels how modern operating systems manage processes.
+%
+To achieve similar functionalities in the realm of aggregate computing,
+it is necessary to advance towards the development of \emph{aggregate operating systems}.
+%
 To coordinate \ac{cas} scenarios in an efficient and effective way,
 there is the need to push the abstraction boundaries further than actual existing approaches.
 %
@@ -262,14 +279,19 @@ but few studies have been conducted to effectively develop such systems.
 %
 Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 -- poses a significant challenge that is increasingly necessary.
-%
 
-Classic aggregate programs are designed to be executed on different devices, independently of external factors;
-this could be restrictive in some scenarios.
+
+\sloppypar
+\paragraph{Idea.}
+It follows that the concept of developing a new infrastructure that allows the use of multiple aggregated processes within
+a similar aggregate operating system naturally arises.
 %
-There are situations where the execution of the program should be influenced by external entities,
-or where there might be the need to inject processes to inform some devices to execute other tasks,
-rather than the one they were executing.
+In order to achieve this,
+it is necessary to understand what constitutes a user (or group) in the aggregate world,
+along with their associated permissions,
+and how to manage the signals sent between aggregated processes.
+
+\angela{fai immagine esplicativa}
 
 \sloppypar
 \paragraph{Research goal.}
@@ -279,14 +301,17 @@ based on the \ac{ac} paradigm.
 The project will focus on capturing some of the key features and roles of an operating system with the \ac{ac} paradigm,
 such as the management of:
 \begin{itemize}
-    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common goal as a single
-    entity or logical resource (sensor and actuation fusion);
-    \item \textbf{file system}: there are distributed data that should be put together and managed as a single entity,
-    there are already some technologies with this aim, but the aim is to get a right level of abstraction to manage the data
-    without knowing the underlying technology;
-    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
-    \item \textbf{permissions}: access to resources and services based on the role of the user relative to the context in which they are located;
-    \item \textbf{signals}: the management of the interruption of the processes and the communication between them.
+    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common observation as a single
+    entity or logical resource (sensor and actuator fusion);
+%    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
+    \item \textbf{aggregate permissions}: in classic operative systems, there is the subdivision of users and groups, and the
+        access to resources and services based on the role of the user relative to the context in which they are located.
+        In the aggregate context, at the moment, there is no clear definition of what a user is and how to manage its permissions in an aggregate system;
+    \item \textbf{signals}: signals are an analog problem as the permissions, it must be clear who sends a signal because it can
+        change the behavior of the recipient process.
+        It also must be investigated what a pause or continue or kill signal means in an aggregate environment;
+    \item \textbf{intra-process communication}: define how the processes can communicate between them, and how to manage the
+        communication between processes that are in different regions of the space.
 \end{itemize}
 
 Managing those features with the \ac{ac} paradigm allows
@@ -301,7 +326,7 @@ The paradigm itself of \ac{ac} offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
 \sloppypar
-\paragraph{Actual functionalities and challenges.}
+\paragraph{Main functionalities and challenges.}
 %
 To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
 a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
@@ -355,12 +380,25 @@ where the drones have to collaborate to achieve a common goal,
 such as monitoring a specific area,
 but the operating system sees them as a single ``sensor'',
 in this way the abstraction of the system is higher and the management of the system is easier.
-
+%
+For instance,
+there may be a drone fleet that has to move something from one place to another,
+they have to collaborate to achieve this goal,
+but the system sees them as a single entity.
+%
 Or even in the management of a smart city,
 where the system has to manage the data of the city and the users,
 there may be the need to monitor parking lots so a user can find a free one,
 or officers can manage the traffic in the city,
 or even the system can manage the lighting of the city based on the presence of people in the streets.
+%
+For instance,
+a big group of people is gathering in a square;
+the system can manage the movement of the people to avoid congestion,
+eventually having the law enforcement to manage the crowd sending signals to the system to change the behavior of the people.
+%
+To achieve this,
+there must be the possibility to change the behavior of the system at runtime.
 
 % ----------------------------------------
 \section{Expected results}
@@ -462,6 +500,19 @@ initially in simulated environments and to evaluate performances and effectivene
 \section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
 \angela{Descrivere sinteticamente quali modalità si intendono utilizzare durante lo svolgimento del progetto per il monitoraggio
 e la valutazione del raggiungimento dei risultati attesi.}
+
+\sloppypar
+\paragraph{Qualitative.}
+
+
+\sloppypar
+\paragraph{Quantitative.}
+
+\sloppypar
+\paragraph{Internal.} \angela{????}
+
+
+
 As evaluation criteria,
 it can be considered the effective functioning of the system in simulated scenarios,
 having a demonstration with heterogeneous devices with the ability to manage a large number of devices,
