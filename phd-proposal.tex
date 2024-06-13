@@ -411,6 +411,9 @@ there may be situations of crowd sensing or crowd steering where law enforcement
 Depending on the situation,
 third-party entities that are allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
 
+The need of sending signals to processes while they are running,
+establish the need of a mechanism to enable the change of the behavior of the system at runtime.
+
 \paragraph{Intra-process communication.}
 Communication between processes in different regions of space is another issue that needs to be addressed.
 %
@@ -447,13 +450,6 @@ based on the \ac{ac} paradigm.
 The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
-%All of these issues are already resolved in the traditional approach,
-%but they still need to be investigated and addressed in the aggregate approach.
-%
-%Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
-%the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
-%of a new generation of operating systems arises.
-
 \subsubsection{Example applications.}
 An application instance is the management of a drone fleet in a surveillance scenario,
 in which drones collaborate to monitor an area.
@@ -464,20 +460,17 @@ the whole fleet is seen as a single entity,
 and the objects in the field of view of each drone constitute a single ``collective sensor'',
 realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
 
-Or even in the management of a smart city,
-where the system has to manage the data of the city and the users,
-there may be the need to monitor parking lots so a user can find a free one,
-or officers can manage the traffic in the city,
-or even the system can manage the lighting of the city based on the presence of people in the streets.
-\angela{esempio con inquinamento luminoso}
+Other examples are in the management of a smart city,
+where the system has to manage the data of the city and the users.
 %
-For instance,
-a big group of people is gathering in a square;
+To avoid light pollution,
+it could be useful to manage the lighting of the city based on the presence of people in the streets,
+or to manage the traffic lights based on the presence of cars in the streets.
+%
+In a crowd management scenario,
 the system can manage the movement of the people to avoid congestion,
-eventually having the law enforcement to manage the crowd sending signals to the system to change the behavior of the people.
-%
-The need of sending signals to processes while they are running,
-establish the need of a mechanism to enable the change of the behavior of the system at runtime.
+eventually having the law enforcement to manage the crowd,
+sending signals to the system to change the direction of the people.
 
 % ----------------------------------------
 \section{Expected results}
