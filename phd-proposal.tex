@@ -165,13 +165,13 @@ and as perks, it offers to limit the consumption of computational resources,
 maintain a good quality of service,
 and enhance the dynamics of distributed computations.
 
-These types of processes differ from the concentrated ones.
-%
-In particular, there are specific issues that arise in the aggregate approach rather than the traditional one.
-%
-For example, managing process interruptions, determining the owner of a process and the resources it can access,
-or understanding what it means to send a signal to a process.
+Aggregate processes, similarly to concentrated processes,
+allow multiple computation to overlap
+(in space and time rather than solely in time, as in a concentrated setting),
+yet, at the moment,
+they do not consider issues related to permissions, signals, or interprocess communication.
 
+\angela{sisop distribuito, far capire in che modo il mio è diverso e non esiste}
 
 \sloppypar
 \paragraph{Tools for Aggregate Computing.}
@@ -385,10 +385,12 @@ and needs rethinking.
 Signals are an analog problem as permissions, it must be clear who sends a signal because it can
 change the behavior of the recipient process.
 %
-It must be possible to send a signal of termination or kill to a process,
-without affecting the other processes,
-and it must be defined who can effectively send a certain kind of signal to processes;
-this is therefore related to the concept of permissions.
+It must be possible to send a signal (such as a termination or kill signal) to an aggregate process specifically,
+without affecting the others;
+moreover,
+not every user in the system can send arbitrary signals to arbitrary aggregate processes:
+in this sense,
+the management of signals is tightly coupled with the capability of managing permissions in space and time.
 %
 Moreover,
 it must be investigated what a pause or continue or kill signal means in an aggregate environment.
@@ -485,7 +487,7 @@ As results of the proposed research project,
 it is expected to bring
 \begin{inlinelist}
     \item a contribution to the advancement of scientific and technological knowledge in the field of \ac{ac} and \ac{cas},
-    \item a formal model of how it should work,
+    \item a theoretical and executable model of the collective operating system,
     \item a prototype of the system that is able to manage in a simple and effective way some of the problems that arise in a collective environment.
 \end{inlinelist}
 %
@@ -613,6 +615,20 @@ The goal is to produce and submit papers to approximately one or two conferences
 The focus will be on the key communities, which have as topic ``self-organizing systems'',
 such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
 or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
+
+
+\angela{international collaborations, uno dei modi che usero per valutare è quella di inserirmi con successo in reti di collaborazione
+ne sono gia state identificate alcune, in particolare ho gia parlato con tomforde
+e ho una rete di esperti che so che partecipa nelle conf precedenti con i quali mi auspico di aver presto un
+confronto per collaborazioni (lukas, papadopulos)}
+
+Another way to evaluate the success of the project is through the establishment of international collaborations.
+%
+%Several experts have already been identified,
+
+
+
+
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
