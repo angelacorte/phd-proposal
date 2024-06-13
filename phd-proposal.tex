@@ -282,15 +282,45 @@ Managing multiple concurrent aggregate operations -- where the execution is dist
 
 \sloppypar
 \paragraph{Idea.}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/system}
+    \caption{
+        High-level view of the system.
+        The collective operating system is seen as a middleware that manages the different aggregate programs and the devices
+        of different types.
+    }\label{fig:system}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/processes}
+    \caption{
+        Processes in the system.
+        Each circle represents a device, its color represents the heterogeneous type of the device.
+        Each ellipse represents a process that can be executed on different devices.
+    }\label{fig:processes}
+\end{figure}
+
 It follows that the concept of developing a new infrastructure that allows the use of multiple aggregated processes within
 a similar aggregate operating system naturally arises.
 %
+In \Cref{fig:system} is shown a high-level view of the system,
+where the collective operating system works as middleware between the different aggregate programs and the devices where they run.
+%
+From another perspective,
+\Cref{fig:processes} shows how the processes are managed in the system.
+%
+Each process can be executed on different devices and a device can execute different processes,
+so it is possible to have an overlap of processes on the devices.
+%
+Note that there can be non-contiguous processes in space-time.
+
 In order to achieve this,
 it is necessary to understand what constitutes a user (or group) in the aggregate world,
 along with their associated permissions,
 and how to manage the signals sent between aggregated processes.
-
-\angela{fai immagine esplicativa}
 
 \sloppypar
 \paragraph{Research goal.}
