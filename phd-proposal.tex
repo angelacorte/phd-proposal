@@ -434,7 +434,9 @@ Another challenge is the management of distributed sensors and actuators.
 %
 Combining the capabilities of multiple devices to achieve a common observation as a single entity or logical resource,
 can lead to a more abstract and high-level programming approach,
-and to involve heterogeneous devices in the system.
+and to involve heterogeneous devices in the system,
+seen as a ``collective sensor'',
+realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
 %
 In the crowd management scenario,
 there may be involved various sensors or devices that observe the crowd,
@@ -450,27 +452,34 @@ based on the \ac{ac} paradigm.
 The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
-\subsubsection{Example applications.}
-An application instance is the management of a drone fleet in a surveillance scenario,
-in which drones collaborate to monitor an area.
+\subsection{Example applications}
+\label{subsec:example-applications}
+An application instance is the crowd management or surveillance scenario.
 %
-From the point of view of the application designer,
-however,
-the whole fleet is seen as a single entity,
-and the objects in the field of view of each drone constitute a single ``collective sensor'',
-realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
+The system can be applied to manage the movement of the people to avoid congestion,
+by sensing the crowd and steering it in a certain direction.
+%
+In this case,
+there may be several drones, or sensors, who are running the same process,
+observing the crowd and sending data to the system,
+which sees them as a single entity.
+%
+People in the crowd are managed by evaluating the data received,
+letting another process direct the movement of the people.
+%
+As previously discussed,
+the two processes need to communicate between them to manage the crowd in an efficient way,
+making people move in the right direction depending on the situation.
+%
+There also may be the need of the intervention of the law enforcement to manage the crowd,
+sending signals, or interrupts,
+to the processes in execution to change the direction of the people.
 
-Other examples are in the management of a smart city,
-where the system has to manage the data of the city and the users.
+Many other application scenarios can be considered,
+such as avoiding light pollution or traffic congestion in a smart city.
 %
-To avoid light pollution,
-it could be useful to manage the lighting of the city based on the presence of people in the streets,
+It could be useful to manage the lighting of the city based on the presence of people in the streets,
 or to manage the traffic lights based on the presence of cars in the streets.
-%
-In a crowd management scenario,
-the system can manage the movement of the people to avoid congestion,
-eventually having the law enforcement to manage the crowd,
-sending signals to the system to change the direction of the people.
 
 % ----------------------------------------
 \section{Expected results}
