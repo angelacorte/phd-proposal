@@ -257,27 +257,34 @@ in a crowd management situation where people are directed to move in a certain d
 congestion might occur,
 necessitating law enforcement to alter the movement of a portion of the crowd.
 
-This concept parallels how modern operating systems manage processes.
+This concept parallels how modern operating systems manage processes, but in space and time.
 %
 To achieve similar functionalities in the realm of aggregate computing,
 it is necessary to advance towards the development of \emph{aggregate operating systems}.
 %
-To coordinate \ac{cas} scenarios in an efficient and effective way,
-there is the need to push the abstraction boundaries further than actual existing approaches.
+%To coordinate \ac{cas} scenarios in an efficient and effective way,
+%there is the need to push the abstraction boundaries further than actual existing approaches.
 %
-This can be achieved by developing a new generation of self-organizing collective systems.
+%This can be achieved by developing a new generation of self-organizing collective systems.
 %
-Those systems should be able to manage the classical functionalities of an operating system,
-such as the management of the devices, the file system, the users, the permissions, and the signals;
-while being able to manage the complexity of the environment, the heterogeneity of the devices involved,
-and to adapt to the dynamic changes of the environment.
+These systems, in fact,
+face concerns akin to those of ``concentrated'' operating system,
+such as the management of devices, users, groups and relative permissions, and signals;
+but in a distributed environment in which these concepts assume a different meaning
+entailing space and time.
 %
-The goal of creating a new generation of operating systems based on \emph{collective operating environment}
-for opportunistic mobile applications and services is well known in literature,
-but few studies have been conducted to effectively develop such systems.
+Additionally,
+\acp{cas} are usually composed of heterogeneous devices,
+meaning that the system must be able to,
+simultaneously,
+abstract away their differences and manage their specificities.
 %
-Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
--- poses a significant challenge that is increasingly necessary.
+%The goal of creating a new generation of operating systems based on \emph{collective operating environment}
+%for opportunistic mobile applications and services is well known in literature,
+%but few studies have been conducted to effectively develop such systems.
+%%
+%Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
+%-- poses a significant challenge that is increasingly necessary.
 
 
 \sloppypar
@@ -295,35 +302,75 @@ Managing multiple concurrent aggregate operations -- where the execution is dist
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/processes}
+    \includegraphics[width=0.99\textwidth]{figures/processes}
     \caption{
-        Processes in the system.
-        Each circle represents a device, its color represents the heterogeneous type of the device.
-        Each ellipse represents a process that can be executed on different devices.
+        Aggregate processes executing on a collective operating system.
+        Solid circumferences represent devices, their internal color indicates the device kind
+        (same color, same kind).
+        The space delimited by the solid black line indicates the region of the space where the
+        operating system is active.
+        Dashed zones are aggregate processes,
+        the same color indicates the same process.
+        Notice that devices may participate in one, none, or multiple processes.
+        Also, differently than the current proposal for aggregate processes,
+        with the proposed approaches the same process can be non-contiguous in space-time.
     }\label{fig:processes}
 \end{figure}
 
-It follows that the concept of developing a new infrastructure that allows the use of multiple aggregated processes within
-a similar aggregate operating system naturally arises.
+%It follows that the concept of developing a new infrastructure that allows the use of multiple aggregated processes within
+%a similar aggregate operating system naturally arises.
 %
-In \Cref{fig:system} is shown a high-level view of the system,
+The general idea of the project is conveyed graphically by
+\Cref{fig:system} and \Cref{fig:processes}.
+%
+\Cref{fig:system} shows a high-level view of the system,
 where the collective operating system works as middleware between the different aggregate programs and the devices where they run.
 %
 From another perspective,
-\Cref{fig:processes} shows how the processes are managed in the system.
+\Cref{fig:processes} shows collective processes that execute over the shared operating system,
+involving different sub-portions of the space-time.
 %
 Each process can be executed on different devices and a device can execute different processes,
 so it is possible to have an overlap of processes on the devices.
 %
-Note that there can be non-contiguous processes in space-time.
-
-In order to achieve this,
-it is necessary to understand what constitutes a user (or group) in the aggregate world,
-along with their associated permissions,
-and how to manage the signals sent between aggregated processes.
+Note that, differently than the current aggregate processes~\cite{EAAI2020-processes},
+through the proposed approach
+the shared operating system permits processes which are non-contiguous in space.
 
 \sloppypar
-\paragraph{Research goal.}
+\paragraph{Research goals and challenges}
+
+utenti e permessi
+%
+sdsadas
+%
+polizia
+
+interrupt e segnali
+%
+sadawsdas
+%
+term per spegnere in modo ordinato o un kill
+%
+chi può farlo? si relaziona alle cose sopra
+
+comunicazione tra processi
+%
+crowd steering vs. tracking
+
+sensori e attuatori distribuiti
+
+Realising as similar system requires an understanding of the meaning of users, groups, and permissions when
+these concepts are tight to space and time.
+%
+Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional operating systems,
+and needs rethinking.
+%
+Moreover, interprocess communication,
+mediated by shared memory spaces or files in traditional systems,
+is not applicable as-is when processes are inherently distributed,
+so further research is needed from this point of view.
+
 The proposed research project aims to investigate the development of \emph{aggregate operating systems},
 based on the \ac{ac} paradigm.
 %
@@ -355,7 +402,7 @@ The paradigm itself of \ac{ac} offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
 \sloppypar
-\paragraph{Main functionalities and challenges.}
+\paragraph{Unire con quello prima}
 %
 To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
 a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
@@ -404,22 +451,21 @@ of a new generation of operating systems arises.
 
 \sloppypar
 \paragraph{Example applications.}
-An example of application of the system could be in the management of a drone fleet,
-where the drones have to collaborate to achieve a common goal,
-such as monitoring a specific area,
-but the operating system sees them as a single ``sensor'',
-in this way the abstraction of the system is higher and the management of the system is easier.
+An application instance is the management of a drone fleet in a surveillance scenario,
+in which drones collaborate to monitor an area.
 %
-For instance,
-there may be a drone fleet that has to move something from one place to another,
-they have to collaborate to achieve this goal,
-but the system sees them as a single entity.
-%
+From the point of view of the application designer,
+however,
+the whole fleet is seen as a single entity,
+and the objects in the field of view of each drone constitute a single ``collective sensor'',
+realizing a form of ``sensor fusion''~\cite{TODO} at the application level.
+
 Or even in the management of a smart city,
 where the system has to manage the data of the city and the users,
 there may be the need to monitor parking lots so a user can find a free one,
 or officers can manage the traffic in the city,
 or even the system can manage the lighting of the city based on the presence of people in the streets.
+inquinamento luminoso
 %
 For instance,
 a big group of people is gathering in a square;
