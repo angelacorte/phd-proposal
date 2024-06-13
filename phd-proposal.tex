@@ -151,6 +151,29 @@ Each device of the system locally evaluates the program at a certain frequency,
 and communicates with neighboring devices when needed.
 
 \sloppypar
+\paragraph{Aggregate Processes.}
+
+To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
+a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
+%
+Aggregate processes are concurrent field computations
+whose execution and interactions are sustained by a dynamic team of devices,
+and whose spatial region can opportunistically change over time.
+%
+This concept captures aggregate behavior, dynamicity and context orientation and intrinsic resiliency;
+and as perks, it offers to limit the consumption of computational resources,
+maintain a good quality of service,
+and enhance the dynamics of distributed computations.
+
+These types of processes differ from the concentrated ones.
+%
+In particular, there are specific issues that arise in the aggregate approach rather than the traditional one.
+%
+For example, managing process interruptions, determining the owner of a process and the resources it can access,
+or understanding what it means to send a signal to a process.
+
+
+\sloppypar
 \paragraph{Tools for Aggregate Computing.}
 
 Different tools have been developed to support the \ac{ac} paradigm,
@@ -243,8 +266,9 @@ done using Collektive.
 \section{Project description}
 \label{sec:project-description}
 
-\sloppypar
-\paragraph{Motivation.}
+%\sloppypar
+\subsection{Motivation.}
+\label{subsec:motivation.}
 
 Typical applications of aggregate computing implement and execute a single, albeit complex, algorithm.
 %
@@ -255,7 +279,7 @@ or manipulated at runtime without affecting the others.
 For example,
 in a crowd management situation where people are directed to move in a certain direction,
 congestion might occur,
-necessitating law enforcement to alter the movement of a portion of the crowd.
+requiring law enforcement to alter the movement of a portion of the crowd.
 
 This concept parallels how modern operating systems manage processes, but in space and time.
 %
@@ -286,9 +310,8 @@ abstract away their differences and manage their specificities.
 %Managing multiple concurrent aggregate operations -- where the execution is distributed over space and time
 %-- poses a significant challenge that is increasingly necessary.
 
-
-\sloppypar
-\paragraph{Idea.}
+\subsection{Idea.}
+\label{subsec:idea.}
 
 \begin{figure}
     \centering
@@ -337,120 +360,101 @@ Note that, differently than the current aggregate processes~\cite{EAAI2020-proce
 through the proposed approach
 the shared operating system permits processes which are non-contiguous in space.
 
-\sloppypar
-\paragraph{Research goals and challenges}
 
-utenti e permessi
-%
-sdsadas
-%
-polizia
+\subsection{Research goals and challenges}
+\label{subsec:research-goals-and-challenges}
 
-interrupt e segnali
-%
-sadawsdas
-%
-term per spegnere in modo ordinato o un kill
-%
-chi può farlo? si relaziona alle cose sopra
+Realising a similar system requires an understanding of the meaning of various concepts when they are tied to space and time.
 
-comunicazione tra processi
+\paragraph{Users and permissions.}
+In classic operating systems exists a subdivision of users and groups,
+and access to resources and services is based on the user's role relative to the context in which they are located.
 %
-crowd steering vs. tracking
-
-sensori e attuatori distribuiti
-
-Realising as similar system requires an understanding of the meaning of users, groups, and permissions when
-these concepts are tight to space and time.
+In an aggregate or collective context,
+at the moment,
+there is no clear definition if what a user (or group) is and how to manage its permissions inside the collective system.
 %
+For example,
+in a crowd management scenario,
+there are more types of users: the people that are part of the crowd and the law enforcement that cam manage the crowd.
+%
+Clearly,
+the law enforcement has more permissions than the people in the crowd and can execute different actions.
+%
+
+\paragraph{Signals and interrupts.}
 Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional operating systems,
 and needs rethinking.
 %
-Moreover, interprocess communication,
-mediated by shared memory spaces or files in traditional systems,
-is not applicable as-is when processes are inherently distributed,
-so further research is needed from this point of view.
-
-The proposed research project aims to investigate the development of \emph{aggregate operating systems},
-based on the \ac{ac} paradigm.
+Signals are an analog problem as permissions, it must be clear who sends a signal because it can
+change the behavior of the recipient process.
 %
-The project will focus on capturing some of the key features and roles of an operating system with the \ac{ac} paradigm,
-such as the management of:
-\begin{itemize}
-    \item \textbf{collective devices}: combining the capabilities of more devices to achieve a common observation as a single
-    entity or logical resource (sensor and actuator fusion);
-%    \item \textbf{users}: groups and sessions that can dynamically adapt to the environment and collaborate between them;
-    \item \textbf{aggregate permissions}: in classic operative systems, there is the subdivision of users and groups, and the
-        access to resources and services based on the role of the user relative to the context in which they are located.
-        In the aggregate context, at the moment, there is no clear definition of what a user is and how to manage its permissions in an aggregate system;
-    \item \textbf{signals}: signals are an analog problem as the permissions, it must be clear who sends a signal because it can
-        change the behavior of the recipient process.
-        It also must be investigated what a pause or continue or kill signal means in an aggregate environment;
-    \item \textbf{intra-process communication}: define how the processes can communicate between them, and how to manage the
-        communication between processes that are in different regions of the space.
-\end{itemize}
-
-Managing those features with the \ac{ac} paradigm allows
-writing a single program for the expected behavior of the system,
-even if there are different mechanisms behind the various devices involved.
+It must be possible to send a signal of termination or kill to a process,
+without affecting the other processes,
+and it must be defined who can effectively send a certain kind of signal to processes;
+this is therefore related to the concept of permissions.
 %
-In this way,
-the software developer does not have to worry about the underlying technology while developing the logic of the system,
-allowing for a more abstract and high-level programming approach and to involve heterogeneous devices in the system.
+Moreover,
+it must be investigated what a pause or continue or kill signal means in an aggregate environment.
 %
-The paradigm itself of \ac{ac} offers consistency and resilience to failures,
-and the possibility to adapt to \emph{dynamic} changes in the environment.
-
-\sloppypar
-\paragraph{Unire con quello prima}
-%
-To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
-a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
-%
-Aggregate processes are concurrent field computations
-whose execution and interactions are sustained by a dynamic team of devices,
-and whose spatial region can opportunistically change over time.
-%
-This concept captures aggregate behavior, dynamicity and context orientation and intrinsic resiliency;
-and as perks, it offers to limit the consumption of computational resources,
-maintain a good quality of service,
-and enhance the dynamics of distributed computations.
-
-These types of processes differ from the concentrated ones.
-%
-In particular, there are specific issues that arise in the aggregate approach rather than the traditional one.
-%
-For example, managing process interruptions, determining the owner of a process and the resources it can access,
-or understanding what it means to send a signal to a process.
-
-All of these issues are already resolved in the traditional approach,
-but they still need to be investigated and addressed in the aggregate approach.
-%
-For instance, in the aggregate approach termination is managed collectively.
+For instance,
+in the aggregate approach termination is managed collectively.
 %
 However,
 there may be situations where a single device decides to terminate processes or where a process using shared
 resources loses the right to use them during execution,
 introducing a distributed consensus problem.
-%
-In practical cases, there may be situations of crowd sensing or crowd steering where,
-eventually,
-law enforcement realizes that too many people are gathering.
+
+Using the example of the crowd management scenario,
+there may be situations of crowd sensing or crowd steering where law enforcement realizes that too many people are gathering.
 %
 Depending on the situation,
-these third-party entities can decide to interrupt the crowd-management process.
+third-party entities that are allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
 
-Another matter not yet addressed is the management of the users in an aggregate environment.
+\paragraph{Intra-process communication.}
+Communication between processes in different regions of space is another issue that needs to be addressed.
 %
-There is the need to understand what does it mean to have a user in an aggregate environment,
-and how to manage the permissions of the users in the system.
+For example,
+in a crowd steering and crowd tracking scenario,
+there are different processes that need to communicate between them to manage the crowd.
 %
-Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
-the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
-of a new generation of operating systems arises.
+A process managing the crowd steering needs to communicate with the process that is managing the crowd tracking,
+to understand where the people are and how to move them.
 
-\sloppypar
-\paragraph{Example applications.}
+Moreover, intra-process communication,
+mediated by shared memory spaces or files in traditional systems,
+is not applicable as-is when processes are inherently distributed,
+so further research is needed from this point of view.
+
+\paragraph{Distributed sensors and actuators.}
+Another challenge is the management of distributed sensors and actuators.
+%
+Combining the capabilities of multiple devices to achieve a common observation as a single entity or logical resource,
+can lead to a more abstract and high-level programming approach,
+and to involve heterogeneous devices in the system.
+%
+In the crowd management scenario,
+there may be involved various sensors or devices that observe the crowd,
+sending data to the system to manage the crowd.
+%
+The system should see data received from different devices as it was a single entity,
+allowing for a more abstract and high-level programming approach.
+\\
+
+The proposed research project therefore aims to investigate the development of \emph{collective operating systems},
+based on the \ac{ac} paradigm.
+%
+The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
+and the possibility to adapt to \emph{dynamic} changes in the environment.
+
+%All of these issues are already resolved in the traditional approach,
+%but they still need to be investigated and addressed in the aggregate approach.
+%
+%Given the features and innovations that the \emph{aggregate processes} approach brings to the field of \ac{ac},
+%the idea of exploring and expanding the concept on the basis of \emph{aggregate processes} to the development
+%of a new generation of operating systems arises.
+
+\subsubsection{Example applications.}
 An application instance is the management of a drone fleet in a surveillance scenario,
 in which drones collaborate to monitor an area.
 %
@@ -458,22 +462,22 @@ From the point of view of the application designer,
 however,
 the whole fleet is seen as a single entity,
 and the objects in the field of view of each drone constitute a single ``collective sensor'',
-realizing a form of ``sensor fusion''~\cite{TODO} at the application level.
+realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
 
 Or even in the management of a smart city,
 where the system has to manage the data of the city and the users,
 there may be the need to monitor parking lots so a user can find a free one,
 or officers can manage the traffic in the city,
 or even the system can manage the lighting of the city based on the presence of people in the streets.
-inquinamento luminoso
+\angela{esempio con inquinamento luminoso}
 %
 For instance,
 a big group of people is gathering in a square;
 the system can manage the movement of the people to avoid congestion,
 eventually having the law enforcement to manage the crowd sending signals to the system to change the behavior of the people.
 %
-To achieve this,
-there must be the possibility to change the behavior of the system at runtime.
+The need of sending signals to processes while they are running,
+establish the need of a mechanism to enable the change of the behavior of the system at runtime.
 
 % ----------------------------------------
 \section{Expected results}
@@ -576,8 +580,7 @@ initially in simulated environments and to evaluate performances and effectivene
 
 \sloppypar
 \paragraph{Qualitative.}
-Regarding the qualitative evaluation,
-it will be based on the development of open-source software capable of being used in simulations and real-world
+Qualitative evaluation will be based on the development of open-source software capable of being used in simulations and real-world
 environments on heterogeneous devices.
 %
 The degree of qualitative success will depend on the features implemented among those previously discussed.
@@ -591,10 +594,8 @@ However,
 field-testing is more challenging due to the need for specific hardware.
 %
 In this regard,
-during the Ph.D. program,
-the possibility of securing a partnership for an international research stay,
-where appropriate hardware is available to test the project,
-is not excluded.
+the possibility of securing a partnership for an international research stay during the PhD program will be pursued,
+where appropriate hardware is available to test the project.
 
 \sloppypar
 \paragraph{Scientific contribution.}
