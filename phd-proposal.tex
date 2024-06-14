@@ -36,12 +36,7 @@
 % ----------------------------------------
 \section{State of the art}
 \label{sec:state-of-the-art}
-% Esporre sinteticamente lo “stato dell’arte” relativamente al tema di ricerca prescelto,
-% con le indicazioni bibliografiche essenziali.
-% Se il progetto fa parte di una ricerca più ampia, evidenziare in modo specifico l’attività specifica che ci si propone di svolgere.
-% Inserire inoltre gli elementi essenziali utili a dimostrare la coerenza del tema di ricerca prescelto con il percorso di
-% formazione e le esperienze pregresse.
-%\paragraph{Collective Adaptive Systems}
+
 \sloppypar
 \paragraph{Collective Adaptive Systems and Macroprogramming.}
 \ac{cas} are systems composed of multiple autonomous entities,
@@ -228,8 +223,9 @@ such as process management, memory management, and communication services.
 The architecture of a \ac{dos} must address both individual and overall system objectives,
 therefore requiring a design approach that separates policy from mechanism.
 %
-The functional challenge of a distributed operating system lies in the multi-level collaboration between the kernel
-and system management components, and among the distinct nodes themselves.
+The functioning of a \ac{dos} lies in the multi-level collaboration between the system components;
+each node has \emph{part} of the distributed resources and has to manage \emph{different processes} from other nodes,
+while the user perceives the system as a single entity.
 
 
 \subsection{Coherence with my previous experiences}
@@ -343,7 +339,7 @@ abstract away their differences and manage their specificities.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/processes}
+    \includegraphics[width=0.6\textwidth]{figures/processes}
     \caption{
         Aggregate processes executed on a collective operating system.
         Solid circumferences represent devices, their internal color indicates the device kind
