@@ -269,11 +269,11 @@ and various demos to show the functionalities of the language.
 These experiences have allowed me to meet and collaborate with various researchers,
 both from the University of Bologna and from abroad Universities.
 %
-I had the opportunity to participate in an internal seminar with Prof. Sven Tomforde,
+I had the opportunity to participate in an internal seminar with prof. Sven Tomforde,
 from the University of Kiel,
 where I presented the work done on the Collektive \ac{dsl} and the \ac{xc} calculus.
 %
-This opportunity has led to the establishment of a collaboration with the Professor,
+This opportunity has led to the establishment of a collaboration with the professor,
 in which I will work on a project that involves the development of a system for managing the communication between ships in the Kiel Canal,
 using the \ac{ac} paradigm.
 
@@ -324,8 +324,8 @@ meaning that the system must be able to,
 simultaneously,
 abstract away their differences and manage their specificities.
 
-\subsection{Idea.}
-\label{subsec:idea.}
+\subsection{Idea}
+\label{subsec:idea}
 
 \begin{figure}
     \centering
@@ -377,7 +377,7 @@ with the aim of evaluating the processes as a collective distributed across spac
 \subsection{Research goals and challenges}
 \label{subsec:research-goals-and-challenges}
 
-Realising a similar system requires an understanding of the meaning of various concepts when they are tied to space and time.
+Realizing such a system requires an understanding of the meaning of various concepts when they are tied to space and time.
 
 \paragraph{Users and permissions.}
 \label{par:users-and-permissions}
@@ -401,7 +401,7 @@ the law enforcement has more permissions than the people in the crowd and can ex
 Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional \acp{os},
 and needs rethinking.
 %
-Signals are an analog problem as permissions, it must be clear who sends a signal because it can
+Signals are a similar problem as permissions, it must be clear who sends a signal because it can
 change the behavior of the recipient process.
 %
 It must be possible to send a signal (such as a termination or kill signal) to an aggregate process specifically,
@@ -471,13 +471,16 @@ based on the \ac{ac} paradigm.
 The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
 and the possibility to adapt to \emph{dynamic} changes in the environment.
 
-\subsection{Example applications}
+\subsection{Reference scenarios}
 \label{subsec:example-applications}
+
+\sloppypar
+\paragraph{Crowd management.}
 The system can find application in various scenarios,
 such as the crowd management or surveillance scenario.
 %
 The system can be applied to manage the movement of the people to avoid congestion,
-by sensing the crowd and steering it in a certain direction.
+by sensing the crowd and steering it in a certain direction to prevent overcrowding and dangerous situations.
 %
 In this case,
 there may be several drones, or sensors, who are running the same aggregate process,
@@ -495,11 +498,39 @@ There also may be the need of the intervention of the law enforcement to manage 
 sending signals, or interrupts,
 to the processes in execution to change the direction of the crowd.
 
+\sloppypar
+\paragraph{Light management in a smart city.}
 Many other application scenarios can be considered,
 such as avoiding light pollution or traffic congestion in a smart city.
 %
 It could be useful to manage the lighting of the city based on the presence of people in the streets,
 or to manage the traffic lights based on the presence of cars in the streets.
+\angela{better example}
+\sloppypar
+\paragraph{Autonomous navigation.}
+One of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
+involves communication between ships in the Kiel Canal and the amount of data that they can exchange depending on the
+different technology of communication they are using.
+%
+Specifically,
+the farther apart the ships are,
+the fewer data they can exchange due to the technology of communication available;
+for instance,
+the ships in a certain range typically communicate through 5G and can exchange more data between them,
+rather than the ships in a longer range that send data using satellite communication.
+%
+\angela{more}
+Currently,
+this issue remains unresolved in an effective manner.
+%
+Therefore,
+it is believed that through \ac{ac},
+and particularly through the use of \ac{xc},
+a contribution can be made towards solving this problem.
+
+
+
+\angela{Add sven's and rewrite light scenario}
 
 % ----------------------------------------
 \section{Expected results}
@@ -510,25 +541,25 @@ it is expected to bring
 \begin{inlinelist}
     \item a contribution to the advancement of scientific and technological knowledge in the field of \ac{ac} and \ac{cas},
     \item a theoretical and executable model of the \ac{cos},
-    \item a prototype of the system that is able to manage in a simple and effective way some of the problems that arise in a collective environment.
+    \item a prototype of the system that is able to manage problems that can arise in a collective environment, such as the scenarios mentioned in \Cref{subsec:example-applications}.
 \end{inlinelist}
-%
-For instance,
-one of the problems presented in the aforementioned collaboration with Prof. Sven Tomforde,
-involves communication between ships in the Kiel Canal and the amount of data that they can exchange depending on the
-type of communication available.
-%
-Specifically,
-the farther apart the ships are,
-the fewer data they can automatically exchange.
-%
-Currently,
-this issue remains unresolved in an effective manner.
-%
-Therefore,
-it is believed that through \ac{ac},
-and particularly through the use of \ac{xc},
-a contribution can be made towards solving this problem.
+%%
+%For instance,
+%one of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
+%involves communication between ships in the Kiel Canal and the amount of data that they can exchange depending on the
+%type of communication available.
+%%
+%Specifically,
+%the farther apart the ships are,
+%the fewer data they can automatically exchange.
+%%
+%Currently,
+%this issue remains unresolved in an effective manner.
+%%
+%Therefore,
+%it is believed that through \ac{ac},
+%and particularly through the use of \ac{xc},
+%a contribution can be made towards solving this problem.
 
 As a long-term vision,
 the system will be able to manage many devices in a collective environment,
@@ -641,14 +672,14 @@ or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journa
 
 \sloppypar
 \paragraph{Dissemination.}
-Another way to evaluate the success of the project is through the establishment of international collaborations.
+Another way to evaluate the success of the project is through the creation of international collaborations.
 %
 Several experts have already been identified,
-particularly Prof. Sven Tomforde, who has expressed interest in collaborating.
+particularly prof. Sven Tomforde, who has expressed interest in collaborating.
 %
 Additionally,
 I hope to discuss potential collaborations soon with a network of experts who have participated in the previously mentioned conferences,
-such as Lukas Esterle and Alessandro Papadopoulos,
+such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
 who have already worked with our research group.
 
 
