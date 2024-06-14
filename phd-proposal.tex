@@ -171,7 +171,6 @@ allow multiple computation to overlap
 yet, at the moment,
 they do not consider issues related to permissions, signals, or interprocess communication.
 
-\angela{sisop distribuito, far capire in che modo il mio è diverso e non esiste}
 
 \sloppypar
 \paragraph{Tools for Aggregate Computing.}
@@ -212,6 +211,27 @@ providing a more expressive language for the development of aggregate systems.
 This language is more modern and has a user-friendly syntax compared to FCPP and Protelis;
 moreover, it is natively multi-platform,
 allowing the development of aggregate systems on different devices.
+
+\angela{sisop distribuito, far capire in che modo il mio è diverso e non esiste}
+\sloppypar
+\paragraph{Distributed Operating Systems.}
+A \ac{dos}~\cite{dos} is defined as a layer that coordinates and manages the resources of different independent networked
+physical computational nodes,
+and each of them holds a specific subset of the global operating system.
+%
+The \ac{dos} is presented to the user as a unified system that works similarly to a centralized \ac{os},
+overcoming the complexity of the distribution of resources and guaranteeing the system's transparency, reliability and efficiency.
+
+At each node,
+the kernel supplies a basic set of services,
+such as process management, memory management, and communication services.
+%
+The architecture of a \ac{dos} must address both individual and overall system objectives,
+therefore requiring a design approach that separates policy from mechanism.
+%
+The functional challenge of a distributed operating system lies in the multi-level collaboration between the kernel
+and system management components, and among the distinct nodes themselves.
+
 
 \subsection{Coherence with my previous experiences}
 \label{subsec:coherence-with-the-educational-path}
@@ -292,13 +312,13 @@ in a crowd management situation where people are directed to move in a certain d
 congestion might occur,
 requiring law enforcement to alter the movement of a portion of the crowd.
 
-This concept parallels how modern operating systems manage processes, but in space and time.
+This concept parallels how modern \acp{os} manage processes, but in space and time.
 %
 To achieve similar functionalities in the realm of aggregate computing,
-it is necessary to advance towards the development of \emph{aggregate operating systems}.
+it is necessary to advance towards the development of \emph{\ac{cos}}.
 %
 These systems, in fact,
-face concerns akin to those of ``concentrated'' operating system,
+face concerns akin to those of ``concentrated'' \ac{os},
 such as the management of devices, users, groups and relative permissions, and signals;
 but in a distributed environment in which these concepts assume a different meaning
 entailing space and time.
@@ -330,7 +350,7 @@ abstract away their differences and manage their specificities.
         Solid circumferences represent devices, their internal color indicates the device kind
         (same color, same kind).
         The space delimited by the solid black line indicates the region of the space where the
-        operating system is active.
+        \ac{os} is active.
         Dashed zones are aggregate processes,
         the same color indicates the same process.
         Notice that devices may participate in one, none, or multiple processes.
@@ -343,10 +363,10 @@ The general idea of the project is conveyed graphically by
 \Cref{fig:system} and \Cref{fig:processes}.
 %
 \Cref{fig:system} shows a high-level view of the system,
-where the collective operating system works as middleware between the different aggregate programs and the devices where they run.
+where the \ac{cos} works as middleware between the different aggregate programs and the devices where they run.
 %
 From another perspective,
-\Cref{fig:processes} shows collective processes that execute over the shared operating system,
+\Cref{fig:processes} shows collective processes that execute over the shared \ac{os},
 involving different sub-portions of the space-time.
 %
 Each process can be executed on different devices and a device can execute different processes,
@@ -354,7 +374,7 @@ so it is possible to have an overlap of processes on the devices.
 %
 Note that, differently than the current aggregate processes~\cite{EAAI2020-processes},
 through the proposed approach
-the shared operating system permits processes which are non-contiguous in space.
+the shared \ac{os} permits processes which are non-contiguous in space.
 
 
 \subsection{Research goals and challenges}
@@ -363,7 +383,7 @@ the shared operating system permits processes which are non-contiguous in space.
 Realising a similar system requires an understanding of the meaning of various concepts when they are tied to space and time.
 
 \paragraph{Users and permissions.}
-In classic operating systems exists a subdivision of users and groups,
+In classic \acp{os} exists a subdivision of users and groups,
 and access to resources and services is based on the user's role relative to the context in which they are located.
 %
 In an aggregate or collective context,
@@ -379,7 +399,7 @@ the law enforcement has more permissions than the people in the crowd and can ex
 %
 
 \paragraph{Signals and interrupts.}
-Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional operating systems,
+Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional \acp{os},
 and needs rethinking.
 %
 Signals are an analog problem as permissions, it must be clear who sends a signal because it can
@@ -487,7 +507,7 @@ As results of the proposed research project,
 it is expected to bring
 \begin{inlinelist}
     \item a contribution to the advancement of scientific and technological knowledge in the field of \ac{ac} and \ac{cas},
-    \item a theoretical and executable model of the collective operating system,
+    \item a theoretical and executable model of the \ac{cos},
     \item a prototype of the system that is able to manage in a simple and effective way some of the problems that arise in a collective environment.
 \end{inlinelist}
 %
@@ -584,7 +604,8 @@ the extended model of the system will be completed (\texttt{T2}), alongside the 
 and the implementation of the third use case scenario mentioned before (\texttt{T5}).
 
 % ----------------------------------------
-\section{Proposed evaluation criteria}\label{sec:proposed-evaluation-criteria}
+\section{Proposed evaluation criteria}
+\label{sec:proposed-evaluation-criteria}
 
 \sloppypar
 \paragraph{Qualitative.}
