@@ -147,6 +147,7 @@ and communicates with neighboring devices when needed.
 
 \sloppypar
 \paragraph{Aggregate Processes.}
+\label{par:aggregate-processes}
 
 To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
 a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
@@ -336,9 +337,9 @@ abstract away their differences and manage their specificities.
     }\label{fig:system}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/processes}
+    \includegraphics[width=0.5\textwidth]{figures/processes}
     \caption{
         Aggregate processes executed on a collective operating system.
         Solid circumferences represent devices, their internal color indicates the device kind
@@ -379,6 +380,7 @@ with the aim of evaluating the processes as a collective distributed across spac
 Realising a similar system requires an understanding of the meaning of various concepts when they are tied to space and time.
 
 \paragraph{Users and permissions.}
+\label{par:users-and-permissions}
 In classic \acp{os} exists a subdivision of users and groups,
 and access to resources and services is based on the user's role relative to the context in which they are located.
 %
@@ -388,13 +390,14 @@ there is no clear definition if what a user (or group) is and how to manage its 
 %
 For example,
 in a crowd management scenario,
-there are more types of users: the people that are part of the crowd and the law enforcement that cam manage the crowd.
+there are more types of users: the people that are part of the crowd and the law enforcement that can manage the crowd.
 %
 Clearly,
 the law enforcement has more permissions than the people in the crowd and can execute different actions.
 %
 
 \paragraph{Signals and interrupts.}
+\label{par:signals-and-interrupts}
 Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional \acp{os},
 and needs rethinking.
 %
@@ -425,10 +428,11 @@ there may be situations of crowd sensing or crowd steering where law enforcement
 Depending on the situation,
 third-party entities that are allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
 
-The need of sending signals to processes while they are running,
+The necessity of sending signals to processes while they are running,
 establish the need of a mechanism to enable the change of the behavior of the system at runtime.
 
 \paragraph{Intra-process communication.}
+\label{par:intra-process-communication}
 Communication between processes in different regions of space is another issue that needs to be addressed.
 %
 For example,
@@ -444,6 +448,7 @@ is not applicable as-is when processes are inherently distributed,
 so further research is needed from this point of view.
 
 \paragraph{Distributed sensors and actuators.}
+\label{par:distributed-sensors-and-actuators}
 Another challenge is the management of distributed sensors and actuators.
 %
 Combining the capabilities of multiple devices to achieve a common observation as a single entity or logical resource,
@@ -454,13 +459,13 @@ realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the applicati
 %
 In the crowd management scenario,
 there may be involved various sensors or devices that observe the crowd,
-sending data to the system to manage the crowd.
+and send data to the system to manage the crowd.
 %
 The system should see data received from different devices as it was a single entity,
 allowing for a more abstract and high-level programming approach.
 \\
 
-The proposed research project therefore aims to investigate the development of \emph{collective operating systems},
+The proposed research project therefore aims to investigate the development of \emph{\ac{cos}},
 based on the \ac{ac} paradigm.
 %
 The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
@@ -468,24 +473,25 @@ and the possibility to adapt to \emph{dynamic} changes in the environment.
 
 \subsection{Example applications}
 \label{subsec:example-applications}
-An application instance is the crowd management or surveillance scenario.
+The system can find application in various scenarios,
+such as the crowd management or surveillance scenario.
 %
 The system can be applied to manage the movement of the people to avoid congestion,
 by sensing the crowd and steering it in a certain direction.
 %
 In this case,
-there may be several drones, or sensors, who are running the same process,
+there may be several drones, or sensors, who are running the same aggregate process,
 observing the crowd and sending data to the system,
-which sees them as a single entity.
+which sees them as a single entity (distributed sensors and actuators).
 %
 People in the crowd are managed by evaluating the data received,
 letting another process direct the movement of the people.
 %
 As previously discussed,
-the two processes need to communicate between them to manage the crowd in an efficient way,
+the two processes need to communicate between them to manage the crowd in an efficient way (intra-process communication),
 making people move in the right direction depending on the situation.
 %
-There also may be the need of the intervention of the law enforcement to manage the crowd,
+There also may be the need of the intervention of the law enforcement to manage the crowd (users and permissions),
 sending signals, or interrupts,
 to the processes in execution to change the direction of the crowd.
 
@@ -633,14 +639,17 @@ The focus will be on the key communities, which have as topic ``self-organizing 
 such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
 or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
 
+\sloppypar
+\paragraph{Dissemination.}
 Another way to evaluate the success of the project is through the establishment of international collaborations.
 %
 Several experts have already been identified,
-particularly Prof. Sven Tomforde,
-who has already expressed interest in collaborating,
-and a network of experts who have participated in previous conferences,
-with whom I hope to have a discussion soon for collaborations,
-such as Lukas Esterle and Alessandro Papadopoulos.
+particularly Prof. Sven Tomforde, who has expressed interest in collaborating.
+%
+Additionally,
+I hope to discuss potential collaborations soon with a network of experts who have participated in the previously mentioned conferences,
+such as Lukas Esterle and Alessandro Papadopoulos,
+who have already worked with our research group.
 
 
 
