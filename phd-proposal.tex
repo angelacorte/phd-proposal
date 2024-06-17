@@ -386,11 +386,11 @@ there is no clear definition if what a user (or group) is and how to manage its 
 %
 For example,
 in a crowd management scenario,
-there are more types of users: the people that are part of the crowd and the law enforcement that can manage the crowd.
+there are multiple types of users:
+the people who are part of the crowd and the law enforcement officers who manage the crowd.
 %
 Clearly,
-the law enforcement has more permissions than the people in the crowd and can execute different actions.
-%
+the law enforcement officers have more permissions than the people in the crowd and can execute different actions.
 
 \paragraph{Signals and interrupts.}
 \label{par:signals-and-interrupts}
@@ -419,13 +419,12 @@ resources loses the right to use them during execution,
 introducing a distributed consensus problem.
 
 Using the example of the crowd management scenario,
-there may be situations of crowd sensing or crowd steering where law enforcement realizes that too many people are gathering.
+there may be situations involving crowd sensing or crowd steering where law enforcement realizes that too many people are gathering.
 %
 Depending on the situation,
-third-party entities that are allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
+third-party entities allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
 
-The necessity of sending signals to processes while they are running,
-establish the need of a mechanism to enable the change of the behavior of the system at runtime.
+The necessity of sending signals to processes while they are running establishes the need for a mechanism to enable changes to the system's behavior at runtime.
 
 \paragraph{Intra-process communication.}
 \label{par:intra-process-communication}
@@ -458,10 +457,9 @@ seen as a ``collective sensor'',
 realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
 %
 In the crowd management scenario,
-there may be involved various sensors or devices that observe the crowd,
-and send data to the system to manage the crowd.
+various sensors or devices may be involved in observing the crowd and sending data to the system for management.
 %
-The system should see data received from different devices as it was a single entity,
+The system should treat data received from different devices as if it were from a single entity,
 allowing for a more abstract and high-level programming approach.
 \\
 
@@ -494,9 +492,8 @@ As previously discussed,
 the two processes need to communicate between them to manage the crowd in an efficient way (intra-process communication),
 making people move in the right direction depending on the situation.
 %
-There also may be the need of the intervention of the law enforcement to manage the crowd (users and permissions),
-sending signals, or interrupts,
-to the processes in execution to change the direction of the crowd.
+There may also be a need for law enforcement intervention to manage the crowd (users and permissions),
+sending signals or interrupts to the processes in execution to change the direction of the crowd.
 
 \sloppypar
 \paragraph{Autonomous navigation.}
@@ -504,7 +501,7 @@ One of the problems presented in the aforementioned collaboration with prof. Sve
 involves communication between maritime autonomous surface ships in the Kiel Canal. %and the amount of data that they can exchange
 %depending on the different technology of communication they are using.
 %
-Ships use different technologies to communicate with each others,
+Ships use different technologies to communicate with each other,
 depending on the distance between them,
 with data rates extremely different depending on the technology used.
 %
@@ -528,10 +525,8 @@ therefore minimizing the errors in the communication between them.
 Many other application scenarios can be considered,
 such as avoiding light pollution or traffic congestion in a smart city.
 %
-It could be useful to manage the lighting of the city based on the presence of people in the streets,
-in order to avoid light pollution and save energy,
-or to manage the traffic lights based on the presence of cars in the streets,
-to avoid traffic congestion.
+It could also be useful to manage the city's lighting based on the presence of people in the streets to avoid light pollution and save energy,
+or to manage the traffic lights based on the presence of cars in the streets to avoid traffic congestion.
 
 % ----------------------------------------
 \section{Expected results}
@@ -567,7 +562,7 @@ Some of the application scenarios where the system can be used are
 \begin{figure}
     \centering
     \includegraphics[width=0.99\textwidth]{figures/timeline}
-    \caption{Hypothetical timeline of the three years of the project.
+    \caption{Hypothetical timeline of the three-year project.
         Years are subdivided in quarters, Q1 is from January to March,
         Q2 is from April to June, Q3 is from July to September, and Q4 is from October to December.
     }\label{fig:timeline}
@@ -630,16 +625,16 @@ and the implementation of the third use case scenario mentioned before (\texttt{
 Qualitative evaluation will be based on the development of open-source software capable of being used in simulations and real-world
 environments on heterogeneous devices.
 %
-The degree of qualitative success will depend on the features implemented among those previously discussed.
+The degree of success will depend on the features implemented among those previously discussed.
 
 \sloppypar
 \paragraph{Quantitative.}
 Experiments will be conducted at least in a simulated environment,
-eventually in a real-world environmenty with the help of a partnership where appropriate hardware is available.
+eventually in a real-world scenario with the help of a partnership where appropriate hardware is available.
 %
 Therefore,
 metrics to evaluate the system will be defined depending on the use case scenario;
-will be then compared with the state of the art approaches and with an oracle system,
+will be then compared with the state-of-the-art approaches and with an oracle system,
 to understand how far from the optimal solution the system is.
 
 However,
@@ -661,12 +656,13 @@ or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journa
 Another way to evaluate the success of the project is through the creation of international collaborations.
 %
 Several experts have already been identified,
-particularly prof. Sven Tomforde, who has expressed interest in collaborating.
+particularly prof. Sven Tomforde,
+who has expressed interest in collaborating.
 %
 Additionally,
-I hope to discuss potential collaborations soon with a network of experts who have participated in the previously mentioned conferences,
+I hope to discuss potential collaborations soon with a network of experts who have participated in the aforementioned conferences,
 such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
-whom already have worked with our research group.
+who have already worked with our research group.
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
