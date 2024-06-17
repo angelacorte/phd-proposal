@@ -115,7 +115,7 @@ In \ac{fc}, devices execute asynchronous computational rounds with three phases:
 \ac{ap} (or \ac{ac})~\cite{BealIEEEComputer2015} is a functional macroprogramming approach for the compositional development
 of self-adaptive \ac{iot} services,
 based on the abstractions of \ac{fc}.
-
+%
 \ac{ac} programs the behavior of distributed systems by defining interactions among devices as a whole,
 shifting the computation unit from individual devices to collaborative groups.
 %
@@ -124,33 +124,31 @@ and runtime execution of collective services across diverse IoT architectures~\c
 %
 The paradigm embodies three key traits:
 \begin{inlinelist}
-    \item \emph{global stance with global-to-local mapping}, targeting the entire distributed IoT ecosystem,
-    \item \emph{service compositionality}, describing rich collective services through functional composition, and
+    \item \emph{global stance with global-to-local mapping}, targeting the entire distributed IoT ecosystem;
+    \item \emph{service compositionality}, describing rich collective services through functional composition;
+    and
     \item \emph{abstraction}, enabling adaptivity by abstracting from low-level details.
 \end{inlinelist}
 %
 These traits facilitate concise articulation of complex solutions in the design phase and provide flexibility in execution and deployment strategies during operation.
 %
-Each device locally evaluates the program at a set frequency and communicates with neighboring devices as needed.
+%Each device locally evaluates the program at a set frequency and communicates with neighboring devices as needed.
 
 \sloppypar
 \paragraph{Aggregate Processes.}
 \label{par:aggregate-processes}
 
-A system has been developed to manage \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}
-to address the challenges of managing multiple concurrent aggregate operations in a distributed environment.
-
-Aggregate processes are concurrent field computations sustained by a dynamic team of devices,
-with their spatial region opportunistically changing over time.
+In \ac{ap},
+all devices share the same program, executing it concurrently and asynchronously.
 %
-This concept captures aggregate behavior, dynamicity, context orientation, and intrinsic resiliency.
+In some cases, however, it is necessary to manage multiple concurrent aggregate operations in a distributed environment,
+each with its spatial region and temporal dynamics:
+for this reason the concept of \emph{aggregate process}~\cite{aggregate-processes} has been introduced.
 %
-It offers benefits such as limiting computational resource consumption, maintaining quality of service,
-and enhancing distributed computation dynamics.
-%
-While similar to concentrated processes,
-aggregate processes allow multiple computations to overlap in both space and time,
-they currently do not consider issues related to permissions, signals, or interprocess communication.
+Although similar to processes as intended in the context of traditional \acp{os}
+in that aggregate processes run encapsulated instances of software overlapping in space and time
+(as opposed to solely in time),
+the current abstractions lack equivalent mechanisms for permissions, signals, or interprocess communication.
 
 \sloppypar
 \paragraph{Tools for Aggregate Computing.}
