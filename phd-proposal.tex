@@ -154,26 +154,26 @@ the current abstractions lack equivalent mechanisms for permissions, signals, or
 \paragraph{Tools for Aggregate Computing.}
 Various tools have been developed to support the \ac{ac} paradigm,
 each tailored to specific characteristics and target devices.
-
+%
+\emph{Protelis}~\cite{PianiniSAC2015} is a functional programming language implementing a higher-order version of \ac{fc},
+with a Java-like syntax for building reusable components of aggregate systems.
+%
+It provides domain-specific APIs interoperable with Java through Protelis-Lang~\cite{SASO2017-protelislang}, but requires a \ac{jvm} to run.
+%
 \emph{ScaFi (Scala Fields)}~\cite{scafi} is a Scala-based framework providing a \ac{dsl}, libraries,
 a simulation environment with a GUI integrated with the Alchemist simulator~\cite{PianiniJOS2013},
 and an actor-based runtime for aggregate computing systems.
 %
-ScaFi runs aggregate programs on the \ac{jvm} and in web browsers through the ScaFi Web tool~\cite{Coordination2021-scafiweb}, for rapid prototyping.
-
-\emph{Protelis}~\cite{PianiniSAC2015} is a functional programming language implementing a higher-order version of \ac{fc},
-with a C-like syntax for building reusable components of aggregate systems.
+ScaFi runs aggregate programs on the \ac{jvm} and in web browsers through the ScaFi Web tool~\cite{Coordination2021-scafiweb}.
 %
-It provides domain-specific APIs interoperable with Java through Protelis-Lang~\cite{SASO2017-protelislang}, but requires a \ac{jvm} to run.
-
 \emph{FCPP}~\cite{DBLP:journals/scp/AudritoT24} is a C++ library implementing FC for simulations of distributed systems.
 %
-It supports running aggregate programs on low computational capacity devices but has a less ergonomic syntax.
-
+It supports running aggregate programs on low computational capacity devices but pays a toll in terms of ergonomy.
+%
 \emph{Collektive} is a prototype \ac{dsl} extending \ac{fc} with \ac{xc}~\cite{AudritoCDSV24},
 offering a more expressive language with a user-friendly syntax compared to FCPP and Protelis.
 %
-It is natively multi-platform, allowing development on various devices.
+It is natively multi-platform, allowing deployment on targets previously not covered (such as iOS devices).
 
 \sloppypar
 \paragraph{Distributed Operating Systems.}
@@ -185,12 +185,14 @@ akin to a centralized \ac{os}, ensuring transparency, reliability, and efficienc
 %
 %The kernel at each node provides essential services such as process and memory management.
 %
-Architecturally,
-a \ac{dos} must balance individual and overall system goals,
-requiring a design approach that separates policy from mechanism.
-%
-Its functioning relies on multi-level collaboration among system components,
-each node has \emph{part} of the distributed resources, and the system distributes the different processes to execute among the nodes,
+%Architecturally,
+%a \ac{dos} must balance individual and overall system goals,
+%requiring a design approach that separates policy from mechanism.
+%%
+%Its functioning
+A \ac{dos} relies on multi-level collaboration among the system's components,
+in which each network node has \emph{part} of the distributed resources,
+and the system distributes the different processes to execute among the nodes,
 while the user perceives the system as a single entity.
 
 \subsection{Coherence with my previous experiences}
