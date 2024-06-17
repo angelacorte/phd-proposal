@@ -201,26 +201,34 @@ The proposed research project extends my Master’s degree final year and thesis
 %
 During my Master’s studies, exploration of  \ac{fc} and \ac{ac} began in the “Pervasive Computing” course.
 %
-My project's colleagues and I developed a Rust-based reimplementation of aggregate computing's core engine,
-alongside a Scala 3 version, providing a solid foundation in \ac{fc} and \ac{ac}.
+My project's colleagues and I developed a Rust-based reimplementation of aggregate computing's core engine
+and an initial Scala 3 porting of Scafi.
 
 My Master’s thesis focused on expanding the Collektive DSL by integrating constructs from the \ac{xc} calculus,
 demonstrating its potential for \ac{ac} applications through a prototype tested on simple case studies.
 
-During the development of the Master's degree,
-I had the opportunity to apply for a research grant that was awarded to me from the \emph{Consortium GARR}~\footnote{\url{https://www.garr.it/it/}},
-the Italian ``Group for Research Networks Harmonisation'',
-ongoing work extends the Collektive DSL by creating a standard library of functions for \ac{ac} application development and showcasing language functionalities through demos.
-
-These experiences facilitated collaborations with various researchers, including a collaboration with Professor Sven Tomforde from
+I then applied a \emph{GARR}\footnote{Group for Research Networks Harmonisation, \url{https://www.garr.it/it/}}-funded research grant
+proposing to extend Collektive with a standard library of functions
+and showcasing language functionalities through demos on diverse target devices.
+%
+The proposal got accepted, and I am currently working on the project.
+%
+At the beginning of the project,
+I had the opportunity to discuss progress and challenges with visiting prof. Sven Tomforde from
 the University of Kiel,
-on managing communication between maritime autonomous surface ships.
+who expressed interest in the approach I am pursuing,
+suggesting applications in the context of
+managing communication between maritime autonomous surface ships.
 
-Furthermore,
-the work done has allowed me to paper submissions to the \emph{IEEE International Conference on Autonomic Computing and Self-Organizing Systems} (ACSOS 2024),
-and the \emph{International Symposium on Distributed Simulation and Real Time Applications} (DS-RT 2024),
-focusing on generalizing the \emph{Vascular Morphogenesis Controller} (VMC)~\cite{ZahadatHS17} algorithm using the \ac{ac} paradigm
-and developing an architecture and prototype for monitoring distributed simulations of distributed systems using Collektive.
+Since I began working on my current research project,
+I was able to co-author two papers currently under review.
+%
+One, submitted to the \emph{IEEE International Conference on Autonomic Computing and Self-Organizing Systems} (ACSOS 2024),
+introduces a generalization of the \ac{vmc}~\cite{ZahadatHS17} algorithm using the \ac{ac} paradigm,
+with a prototype implementation written in Collektive.
+%
+The other, submitted to the \emph{International Symposium on Distributed Simulation and Real Time Applications} (DS-RT 2024),
+introduces an architecture and prototype for monitoring distributed simulations of distributed systems.
 
 % ----------------------------------------
 \section{Project description}
@@ -276,7 +284,7 @@ requiring the system to abstract their differences while managing their specific
         Dashed zones are aggregate processes,
         the same color indicates the same process.
         Notice that devices may participate in one, none, or multiple processes.
-        Also, differently than the current proposal for aggregate processes,
+        Also, differently than the current implementation of aggregate processes,
         with the proposed approaches the same process can be non-contiguous in space-time.
     }\label{fig:processes}
 \end{figure}
