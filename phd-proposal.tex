@@ -366,10 +366,10 @@ processes managing these tasks need to communicate to effectively manage the cro
 %
 A steering process must communicate with a tracking process to understand crowd locations and direct movement accordingly.
 
-Intra-process communication,
+This type of communication,
 typically managed by shared memory spaces or files in traditional systems,
 isn't directly applicable in distributed processes,
-necessitating further research.
+requiring further research.
 %
 Currently, aggregate processes lack this communication capability.
 
@@ -384,10 +384,12 @@ realizing a ``sensor fusion''~\cite{sasiadek2002sensor} at the application level
 In crowd management,
 various sensors observe the crowd and send data to the system,
 which should treat the data as coming from a single entity for more abstract and efficient management.
-%\\
-%
-%The proposed research project therefore aims to investigate the development of \emph{\ac{cos}},
-%based on the \ac{ac} paradigm.
+\\
+
+The proposed research project therefore aims to investigate the development of \emph{\ac{cos}},
+based on the \ac{ac} paradigm,
+offering consistency and resilience to failures,
+while adapting to \emph{dynamic} changes in the environment.
 %%
 %The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
 %and the possibility to adapt to \emph{dynamic} changes in the environment.
