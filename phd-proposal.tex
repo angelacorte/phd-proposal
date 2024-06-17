@@ -22,16 +22,12 @@
 
 \begin{document}
 
-%\title{Towards aggregate operating systems with Aggregate Computing}
-%\title{Towards collective systems with Aggregate Computing}
 \title{Towards collective operating systems through Aggregate Computing}
-%\title{Towards collective operative environments with Aggregate Computing}
+
 \author{Angela Cortecchia}
 \date{\today}
 \maketitle
-%
-%\setlength{\parindent}{0em}
-%\setlength{\parskip}{1em}
+
 
 % ----------------------------------------
 \section{State of the art}
@@ -274,8 +270,8 @@ from the University of Kiel,
 where I presented the work done on the Collektive \ac{dsl} and the \ac{xc} calculus.
 %
 This opportunity has led to the establishment of a collaboration with the professor,
-in which I will work on a project that involves the development of a system for managing the communication between ships in the Kiel Canal,
-using the \ac{ac} paradigm.
+in which I will work on a project that involves the development of a system for managing the communication between maritime autonomous
+surface ships in the Kiel Canal, using the \ac{ac} paradigm.
 
 The work done has allowed me to submit a paper to the \emph{IEEE International Conference on Autonomic Computing and Self-Organizing Systems} (ACSOS 2024),
 which is currently under review,
@@ -415,7 +411,7 @@ Moreover,
 it must be investigated what a pause or continue or kill signal means in an aggregate environment.
 %
 For instance,
-in the aggregate approach termination is managed collectively.
+in the aggregate processes approach termination is managed collectively and cannot be interrupted yet. %todo check
 %
 However,
 there may be situations where a single device decides to terminate processes or where a process using shared
@@ -446,6 +442,10 @@ Moreover, intra-process communication,
 mediated by shared memory spaces or files in traditional systems,
 is not applicable as-is when processes are inherently distributed,
 so further research is needed from this point of view.
+%
+Actually,
+this feature is not present in the current aggregate processes,
+where the communication between processes is not allowed. %todo check
 
 \paragraph{Distributed sensors and actuators.}
 \label{par:distributed-sensors-and-actuators}
@@ -499,38 +499,39 @@ sending signals, or interrupts,
 to the processes in execution to change the direction of the crowd.
 
 \sloppypar
-\paragraph{Light management in a smart city.}
-Many other application scenarios can be considered,
-such as avoiding light pollution or traffic congestion in a smart city.
-%
-It could be useful to manage the lighting of the city based on the presence of people in the streets,
-or to manage the traffic lights based on the presence of cars in the streets.
-\angela{better example}
-\sloppypar
 \paragraph{Autonomous navigation.}
 One of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
-involves communication between ships in the Kiel Canal and the amount of data that they can exchange depending on the
-different technology of communication they are using.
+involves communication between maritime autonomous surface ships in the Kiel Canal. %and the amount of data that they can exchange
+%depending on the different technology of communication they are using.
+%
+Ships use different technologies to communicate with each others,
+depending on the distance between them,
+with data rates extremely different depending on the technology used.
 %
 Specifically,
 the farther apart the ships are,
 the fewer data they can exchange due to the technology of communication available;
 for instance,
-the ships in a certain range typically communicate through 5G and can exchange more data between them,
+the ships in a shorter range typically communicate through 5G and can exchange more data between them,
 rather than the ships in a longer range that send data using satellite communication.
 %
-\angela{more}
-Currently,
-this issue remains unresolved in an effective manner.
-%
-Therefore,
-it is believed that through \ac{ac},
+It is believed that through \ac{ac},
 and particularly through the use of \ac{xc},
 a contribution can be made towards solving this problem.
+%
+The system should automatically adapt to the appropriate technology of communication,
+choosing the priority data to exchange between the ships,
+therefore minimizing the errors in the communication between them.
 
-
-
-\angela{Add sven's and rewrite light scenario}
+\sloppypar
+\paragraph{Light management in a smart city.}
+Many other application scenarios can be considered,
+such as avoiding light pollution or traffic congestion in a smart city.
+%
+It could be useful to manage the lighting of the city based on the presence of people in the streets,
+in order to avoid light pollution and save energy,
+or to manage the traffic lights based on the presence of cars in the streets,
+to avoid traffic congestion.
 
 % ----------------------------------------
 \section{Expected results}
@@ -541,25 +542,9 @@ it is expected to bring
 \begin{inlinelist}
     \item a contribution to the advancement of scientific and technological knowledge in the field of \ac{ac} and \ac{cas},
     \item a theoretical and executable model of the \ac{cos},
-    \item a prototype of the system that is able to manage problems that can arise in a collective environment, such as the scenarios mentioned in \Cref{subsec:example-applications}.
+    \item a prototype of the system that is able to manage scenarios at least in a simulated environment,
+    taking as reference scenarios the crowd management and the autonomous navigation scenarios mentioned in \Cref{subsec:example-applications}.
 \end{inlinelist}
-%%
-%For instance,
-%one of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
-%involves communication between ships in the Kiel Canal and the amount of data that they can exchange depending on the
-%type of communication available.
-%%
-%Specifically,
-%the farther apart the ships are,
-%the fewer data they can automatically exchange.
-%%
-%Currently,
-%this issue remains unresolved in an effective manner.
-%%
-%Therefore,
-%it is believed that through \ac{ac},
-%and particularly through the use of \ac{xc},
-%a contribution can be made towards solving this problem.
 
 As a long-term vision,
 the system will be able to manage many devices in a collective environment,
@@ -649,22 +634,23 @@ The degree of qualitative success will depend on the features implemented among 
 
 \sloppypar
 \paragraph{Quantitative.}
-Quantitative analysis can be assessed through the effective functioning of the system in simulated scenarios,
-which are expected to be obtained relatively soon.
+Experiments will be conducted at least in a simulated environment,
+eventually in a real-world environmenty with the help of a partnership where appropriate hardware is available.
 %
+Therefore,
+metrics to evaluate the system will be defined depending on the use case scenario;
+will be then compared with the state of the art approaches and with an oracle system,
+to understand how far from the optimal solution the system is.
+
 However,
-field-testing is more challenging due to the need for specific hardware.
-%
-In this regard,
+as field-testing is more challenging due to the need for specific hardware.
 the possibility of securing a partnership for an international research stay during the PhD program will be pursued,
 where appropriate hardware is available to test the project.
 
 \sloppypar
 \paragraph{Scientific contribution.}
 In terms of scientific results and dissemination,
-a couple of papers have already been submitted and are currently under review.
-%
-The goal is to produce and submit papers to approximately one or two conferences per year and to have several articles submitted to journals.
+the goal is to produce and submit papers to approximately one or two conferences per year and to have a couple of articles submitted to journals.
 %
 The focus will be on the key communities, which have as topic ``self-organizing systems'',
 such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
@@ -681,10 +667,6 @@ Additionally,
 I hope to discuss potential collaborations soon with a network of experts who have participated in the previously mentioned conferences,
 such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
 who have already worked with our research group.
-
-
-
-
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
