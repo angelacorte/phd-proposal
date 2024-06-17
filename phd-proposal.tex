@@ -38,7 +38,8 @@
 \ac{cas} are systems composed of multiple autonomous entities,
 including devices, sensors, and actuators, which interact locally to achieve a shared global objective~\cite{ferscha2015}.
 %
-These systems are designed to adapt to dynamic changes in the environment, system requirements, or operational conditions.
+\ac{cas} are designed to adapt to dynamic changes in the environment, system requirements, or operational conditions.
+%These systems are designed to adapt to dynamic changes in the environment, system requirements, or operational conditions.
 %
 \ac{cas} are commonly employed in \ac{cps} applications where devices collaborate to monitor and control a
 physical environment or to provide services to users.
@@ -77,29 +78,35 @@ Over time,
 various approaches like \textit{Linda}~\cite{ViroliCoordination2012} and \textit{MARS}~\cite{mars} have emerged,
 focusing on centralized local components rather than system distribution.
 %
-Key challenges in distributed systems include openness to environmental changes, large-scale agent coordination,
-and intrinsic adaptiveness to ensure system resilience.
+The primary challenges in distributed systems are adapting to environmental changes, coordinating many agents effectively, and maintaining resilience.
 %
-Addressing these challenges requires a \emph{self-organization and -coordination} approach,
-managing logical interactions to
-ensure global and robust coordination behavior.
+Addressing these demands a \emph{self-organizing and coordinating} approach, regulating interactions to ensure robust global coordination behavior.
 
-To facilitate self-organization in complex environments, the \emph{coordination field} concept was introduced as a
-navigational tool for agents.
-%
-The tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} supports field-based coordination in pervasive
-computing applications.
-%
-Studies on distributed intelligent systems proposed computational fields for managing space-time
-computing models, promoting higher abstractions of spatial collective adaptive systems~\cite{JLAMP2019}.
+%To facilitate self-organization in complex environments, the \emph{coordination field} concept was introduced as a
+%navigational tool for agents.
 
-\ac{fc}~\cite{TOCL2019} emerged as a foundational model for coordinating computational devices in physical environments.
+%The tuple-based middleware \textit{TOTA} (Tuples On The Air)~\cite{tota} supports field-based coordination in pervasive
+%computing applications.
+
+%Studies on distributed intelligent systems proposed computational fields for managing space-time
+%computing models, promoting higher abstractions of spatial collective adaptive systems~\cite{JLAMP2019}.
+
+The coordination field concept aids self-organization in complex environments.
+\emph{TOTA} (Tuples On The Air), a tuple-based middleware~\cite{tota}, 
+supports field-based coordination in pervasive computing. 
 %
-\ac{fc} was introduced as minimal core calculus with the aim of capturing the fundaments that make use of computational fields:
-functions over and with fields, their evolution over time and the construction of field of values from neighbors.
+Research on distributed intelligent systems has proposed computational fields for managing space-time computing models, 
+promoting higher abstractions of spatial collective adaptive systems~\cite{JLAMP2019}.
+
+\ac{fc}~\cite{TOCL2019} is a foundational model for coordinating computational devices in physical environments.
 %
-It specifies aggregate system behavior through a dynamic network of directly communicating devices,
-using functional compositions of operators manipulating computational fields.
+It captures the essentials of computational fields,
+including functions over and with fields,
+their temporal evolution,
+and the construction of field values from neighboring devices.
+%
+\ac{fc} specifies system behavior through a dynamic network of directly communicating devices,
+using functional compositions of operators to manipulate computational fields.
 %
 Local specifications involve asynchronous computational rounds with three phases:
 \begin{inlinelist}
@@ -118,171 +125,111 @@ specifying mappings for each device's computation round at space-time events.
 of self-adaptive \ac{iot} services,
 based on the abstractions of \ac{fc}~\cite{MAMEIZL04}.
 
-\ac{ac} programs the behavior of a distributed system by defining interactions among devices as a whole,
-rather than individual device behavior,
-shifting the fundamental computation unit from a single device to a collaborative group of devices.
+\ac{ac} programs the behavior of distributed systems by defining interactions among devices as a whole,
+shifting the computation unit from individual devices to collaborative groups.
 %
-This structure supports the specification, analysis, simulation,
-and runtime execution of \emph{collective} or \emph{aggregate} services,
-independently of specific \ac{iot} architectures~\cite{FI2020-pulverization}.
+This approach supports the specification, analysis, simulation,
+and runtime execution of collective services across diverse IoT architectures~\cite{FI2020-pulverization}.
 %
-The paradigm has three key traits:
+The paradigm embodies three key traits:
 \begin{inlinelist}
-    \item \emph{global stance with global-to-local mapping}, where the target of system design is the entire distributed \ac{iot} ecosystem,
-    \item \emph{service compositionality}, describing rich collective services through the functional composition of simpler services,
+    \item \emph{global stance with global-to-local mapping}, targeting the entire distributed IoT ecosystem,
+    \item \emph{service compositionality}, describing rich collective services through functional composition, and
     \item \emph{abstraction}, enabling adaptivity by abstracting from low-level details.
 \end{inlinelist}
 %
-These attributes are crucial in both the \emph{design phase},
-allowing concise and declarative articulation of complex solutions,
-and the \emph{operational phase},
-providing flexibility in execution specifics and deployment strategies.
+These traits facilitate concise articulation of complex solutions in the design phase and provide flexibility in execution and deployment strategies during operation.
 %
-Each device of the system locally evaluates the program at a certain frequency,
-and communicates with neighboring devices when needed.
+Each device locally evaluates the program at a set frequency and communicates with neighboring devices as needed.
 
 \sloppypar
 \paragraph{Aggregate Processes.}
 \label{par:aggregate-processes}
 
-To address the challenges of managing multiple concurrent aggregate operations in a distributed environment,
-a system has been developed for managing \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}.
-%
-Aggregate processes are concurrent field computations
-whose execution and interactions are sustained by a dynamic team of devices,
-and whose spatial region can opportunistically change over time.
-%
-This concept captures aggregate behavior, dynamicity and context orientation and intrinsic resiliency;
-and as perks, it offers to limit the consumption of computational resources,
-maintain a good quality of service,
-and enhance the dynamics of distributed computations.
+A system has been developed to manage \emph{aggregate processes}~\cite{aggregate-processes} based on \ac{fc}
+to address the challenges of managing multiple concurrent aggregate operations in a distributed environment.
 
-Aggregate processes, similarly to concentrated processes,
-allow multiple computation to overlap
-(in space and time rather than solely in time, as in a concentrated setting),
-yet, at the moment,
-they do not consider issues related to permissions, signals, or interprocess communication.
-
+Aggregate processes are concurrent field computations sustained by a dynamic team of devices,
+with their spatial region opportunistically changing over time.
+%
+This concept captures aggregate behavior, dynamicity, context orientation, and intrinsic resiliency.
+%
+It offers benefits such as limiting computational resource consumption, maintaining quality of service,
+and enhancing distributed computation dynamics.
+%
+While similar to concentrated processes,
+aggregate processes allow multiple computations to overlap in both space and time,
+they currently do not consider issues related to permissions, signals, or interprocess communication.
 
 \sloppypar
 \paragraph{Tools for Aggregate Computing.}
+Various tools have been developed to support the \ac{ac} paradigm,
+each tailored to specific characteristics and target devices.
 
-Different tools have been developed to support the \ac{ac} paradigm,
-each with its own characteristics and target devices.
+\emph{ScaFi (Scala Fields)}~\cite{scafi} is a Scala-based framework providing a \ac{dsl}, libraries,
+a simulation environment with a GUI integrated with the Alchemist simulator~\cite{PianiniJOS2013},
+and an actor-based runtime for aggregate computing systems.
+%
+ScaFi runs aggregate programs on the \ac{jvm} and in web browsers through the ScaFi Web tool~\cite{Coordination2021-scafiweb}, for rapid prototyping.
 
-\emph{ScaFi (Scala Fields)}\cite{scafi} is a Scala-based framework for aggregate programming,
-it provides a \ac{dsl}, libraries, a simulation environment with a GUI,
-integrated with the Alchemist simulator~\cite{PianiniJOS2013},
-and an actor-based runtime for the development of aggregate computing-based systems.
+\emph{Protelis}~\cite{PianiniSAC2015} is a functional programming language implementing a higher-order version of \ac{fc},
+with a C-like syntax for building reusable components of aggregate systems.
 %
-ScaFi is capable of running aggregate programs on the \ac{jvm} and also on web browser thanks to the ScaFi Web tool~\cite{Coordination2021-scafiweb},
-which allows the rapid prototyping of aggregate programs.
+It provides domain-specific APIs interoperable with Java through Protelis-Lang~\cite{SASO2017-protelislang}, but requires a \ac{jvm} to run.
 
-\emph{Protelis}~\cite{PianiniSAC2015} is a functional programming language that implements a higher-order version of the \ac{fc},
-exposed through a C-like syntax,
-enabling the construction of widely reusable components of aggregate systems.
+\emph{FCPP}~\cite{DBLP:journals/scp/AudritoT24} is a C++ library implementing FC for simulations of distributed systems.
 %
-It also provides various domain-specific APIs that are interoperable with Java, the Protelis-Lang~\cite{SASO2017-protelislang}.
-%
-Being based on \emph{Xtext},
-it necessarily requires a \ac{jvm} to run,
-which limits the heterogeneity of devices that can be used in the system.
+It supports running aggregate programs on low computational capacity devices but has a less ergonomic syntax.
 
-\emph{FCPP}~\cite{DBLP:journals/scp/AudritoT24} is an implementation of the \ac{fc} as a C++ library,
-with tools for simulations of distributed systems.
+\emph{Collektive} is a prototype \ac{dsl} extending \ac{fc} with \ac{xc}~\cite{AudritoCDSV24},
+offering a more expressive language with a user-friendly syntax compared to FCPP and Protelis.
 %
-It allows running aggregate programs on low computational capacity devices.
-%
-However,
-its syntax is less ergonomic compared to other languages,
-making it unlikely to reach a mainstream developer audience.
-
-\emph{Collektive} is a prototype \ac{dsl} for aggregate computing that extends the \ac{fc} with the \ac{xc}~\cite{AudritoCDSV24},
-providing a more expressive language for the development of aggregate systems.
-%
-This language is more modern and has a user-friendly syntax compared to FCPP and Protelis;
-moreover, it is natively multi-platform,
-allowing the development of aggregate systems on different devices.
+It is natively multi-platform, allowing development on various devices.
 
 \sloppypar
 \paragraph{Distributed Operating Systems.}
-A \ac{dos}~\cite{dos} is defined as a layer that coordinates and manages the resources of different independent networked
-physical computational nodes,
-and each of them holds a specific subset of the global operating system.
+A \ac{dos}~\cite{dos} coordinates and manages resources across independent networked computational nodes,
+each holding a specific subset of the global operating system.
 %
-The \ac{dos} is presented to the user as a unified system that works similarly to a centralized \ac{os},
-overcoming the complexity of the distribution of resources and guaranteeing the system's transparency, reliability and efficiency.
+It presents a unified system to the user,
+akin to a centralized \ac{os}, ensuring transparency, reliability, and efficiency despite resource distribution complexity.
 %
-At each node,
-the kernel supplies a basic set of services,
-such as process management, memory management, and communication services.
+%The kernel at each node provides essential services such as process and memory management.
 %
-The architecture of a \ac{dos} must address both individual and overall system objectives,
-therefore requiring a design approach that separates policy from mechanism.
-
-The functioning of a \ac{dos} lies in the multi-level collaboration between the system components;
+Architecturally,
+a \ac{dos} must balance individual and overall system goals,
+requiring a design approach that separates policy from mechanism.
+%
+Its functioning relies on multi-level collaboration among system components,
 each node has \emph{part} of the distributed resources, and the system distributes the different processes to execute among the nodes,
 while the user perceives the system as a single entity.
 
 \subsection{Coherence with my previous experiences}
 \label{subsec:coherence-with-the-educational-path}
+The proposed research project extends my Master’s degree final year and thesis activities.
+%
+During my Master’s studies, exploration of  \ac{fc} and \ac{ac} began in the “Pervasive Computing” course.
+%
+My project's colleagues and I developed a Rust-based reimplementation of aggregate computing's core engine,
+alongside a Scala 3 version, providing a solid foundation in \ac{fc} and \ac{ac}.
 
-The research project proposed can be seen as an extension of the research activities
-carried out with my Master's degree final year and thesis.
-%
-During the Master's degree,
-the exploration of \ac{fc} and \ac{ac} began as a project of the course ``Pervasive Computing''.
-%
-My project's colleagues and I developed a reimplementation of aggregate computing in Rust,
-more specifically the core of the engine inherent to the \ac{fc}.
-%
-In addition to the development of the engine in Rust,
-we also developed a version in Scala 3 of the engine's core that was already implemented in Scala 2,
-which is the language used by the ScaFi project.
-%
-This work provided me with a good foundation in the field of \ac{ac} and \ac{fc}.
-
-The Master's thesis was also focused on the \ac{ac} paradigm.
-%
-The goal of the thesis was to expand the work done on the Collektive \ac{dsl} previously developed,
-by adding the constructs of the \ac{xc} calculus to the language.
-%
-At the end of the thesis, a prototype of the language was ready and tested on simple case study,
-showing the potential of the language in the development of \ac{ac} applications.
-%
-The thesis therefore helped me to deepen my knowledge of the \ac{ac} paradigm and to understand the potential
-of the language in the development of \ac{ac} applications.
+My Master’s thesis focused on expanding the Collektive DSL by integrating constructs from the \ac{xc} calculus,
+demonstrating its potential for \ac{ac} applications through a prototype tested on simple case studies.
 
 During the development of the Master's degree,
-I had the opportunity to apply for a research grant that was awarded to me from the \emph{Consortium GARR},
+I had the opportunity to apply for a research grant that was awarded to me from the \emph{Consortium GARR}~\footnote{\url{https://www.garr.it/it/}},
 the Italian ``Group for Research Networks Harmonisation'',
-and it is currently ongoing.
-%
-The research grant has the focus on the extension of the work done on the Collektive \ac{dsl},
-by creating a standard library of functions that can be used in the development of \ac{ac} applications,
-and various demos to show the functionalities of the language.
+ongoing work extends the Collektive DSL by creating a standard library of functions for \ac{ac} application development and showcasing language functionalities through demos.
 
-These experiences have allowed me to meet and collaborate with various researchers,
-both from the University of Bologna and from abroad Universities.
-%
-I had the opportunity to participate in an internal seminar with prof. Sven Tomforde,
-from the University of Kiel,
-where I presented the work done on the Collektive \ac{dsl} and the \ac{xc} calculus.
-%
-This opportunity has led to the establishment of a collaboration with the professor,
-in which I will work on a project that involves the development of a system for managing the communication between maritime autonomous
-surface ships in the Kiel Canal, using the \ac{ac} paradigm.
+These experiences facilitated collaborations with various researchers, including a collaboration with Professor Sven Tomforde from
+the University of Kiel,
+on managing communication between maritime autonomous surface ships.
 
-The work done has allowed me to submit a paper to the \emph{IEEE International Conference on Autonomic Computing and Self-Organizing Systems} (ACSOS 2024),
-which is currently under review,
-about a generalization of the \emph{Vascular Morphogenesis Controller} (VMC)~\cite{ZahadatHS17} algorithm using the \ac{ac} paradigm.
-%
-Another paper is currently under review to the \emph{International Symposium on Distributed Simulation and Real Time Applications} (DS-RT 2024).
-%
-It is about the development of an architecture and prototype
-for monitoring distributed simulations of distributed systems,
-where my contribution consists of the development of the simulations used in the evaluation of the architecture,
-done using Collektive.
+Furthermore,
+the work done has allowed me to paper submissions to the \emph{IEEE International Conference on Autonomic Computing and Self-Organizing Systems} (ACSOS 2024),
+and the \emph{International Symposium on Distributed Simulation and Real Time Applications} (DS-RT 2024),
+focusing on generalizing the \emph{Vascular Morphogenesis Controller} (VMC)~\cite{ZahadatHS17} algorithm using the \ac{ac} paradigm
+and developing an architecture and prototype for monitoring distributed simulations of distributed systems using Collektive.
 
 % ----------------------------------------
 \section{Project description}
@@ -498,8 +445,7 @@ sending signals or interrupts to the processes in execution to change the direct
 \sloppypar
 \paragraph{Autonomous navigation.}
 One of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
-involves communication between maritime autonomous surface ships in the Kiel Canal. %and the amount of data that they can exchange
-%depending on the different technology of communication they are using.
+involves communication between maritime autonomous surface ships in the Kiel Canal.
 %
 Ships use different technologies to communicate with each other,
 depending on the distance between them,
@@ -576,29 +522,27 @@ where each year is subdivided into quarters.
 In the first year of the project,
 it is essential to thoroughly investigate the state of the art and create a simplified model of how the new system should work.
 %
-The simplified model (identified as \texttt{T1})
-will include the definition of the main interconnected concepts of the system,
+The simplified model will include the definition of the main interconnected concepts of the system,
 such as the implementation of the aggregate processes,
 the management of permissions and the collective sensing of external devices.
 %
 Following this,
-the actual development process begins with the prototype implementation (\texttt{T3}) in the target language Collektive.
+the actual development process begins with the prototype implementation in the target language Collektive.
 %
 At the end of the first year,
 there will be enough foundations to start the development of the system in a use case scenario.
 %
-The use case, identified as \texttt{T4},
-will be relevant to the crowd safety scenario,
+The use case will be relevant to the crowd safety scenario,
 including crowd steering, sensing, and tracking.
 
 \sloppypar
 \paragraph{Second year}
-The second year of the project will be focused on completing the simplified model of the system (\texttt{T1}),
-leading to the development of the extended model (\texttt{T2}),
+The second year of the project will be focused on completing the simplified model of the system,
+leading to the development of the extended model,
 that includes the management of users or groups, signals and interrupts, and intra-process communication.
 %
 Throughout the year,
-the focus will be on continuing the development of the prototype (\texttt{T3}),
+the focus will be on continuing the development of the prototype,
 expanding on the concepts investigated in the first year,
 and incorporating features such as runtime aggregate programs injection.
 %
@@ -607,14 +551,14 @@ when considering the international research stay,
 the plan is to establish contacts with companies or research groups that possess the necessary hardware to test the system.
 %
 Towards the end of this period,
-the first use case (\texttt{T4}) will be implemented and tested in a simulated environment,
-leaving space to the implementation of the second use case inherent to the autonomous navigation scenario (\texttt{T5}).
+the first use case will be implemented and tested in a simulated environment,
+leaving space to the implementation of the second use case inherent to the autonomous navigation scenario.
 
 \sloppypar
 \paragraph{Third year}
 In the third and final year of the project,
-the extended model of the system will be completed (\texttt{T2}), alongside the development of the prototype (\texttt{T3})
-and the implementation of the third use case scenario mentioned before (\texttt{T5}).
+the extended model of the system will be completed, alongside the development of the prototype
+and the implementation of the third use case scenario mentioned before.
 
 % ----------------------------------------
 \section{Proposed evaluation criteria}
@@ -641,28 +585,28 @@ However,
 as field-testing is more challenging due to the need for specific hardware.
 the possibility of securing a partnership for an international research stay during the PhD program will be pursued,
 where appropriate hardware is available to test the project.
-
-\sloppypar
-\paragraph{Scientific contribution.}
-In terms of scientific results and dissemination,
-the goal is to produce and submit papers to approximately one or two conferences per year and to have a couple of articles submitted to journals.
 %
-The focus will be on the key communities, which have as topic ``self-organizing systems'',
-such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
-or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
-
-\sloppypar
-\paragraph{Dissemination.}
-Another way to evaluate the success of the project is through the creation of international collaborations.
+%\sloppypar
+%\paragraph{Scientific contribution.}
+%In terms of scientific results and dissemination,
+%the goal is to produce and submit papers to approximately one or two conferences per year and to have a couple of articles submitted to journals.
+%%
+%The focus will be on the key communities, which have as topic ``self-organizing systems'',
+%such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
+%or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
 %
-Several experts have already been identified,
-particularly prof. Sven Tomforde,
-who has expressed interest in collaborating.
-%
-Additionally,
-I hope to discuss potential collaborations soon with a network of experts who have participated in the aforementioned conferences,
-such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
-who have already worked with our research group.
+%\sloppypar
+%\paragraph{Dissemination.}
+%Another way to evaluate the success of the project is through the creation of international collaborations.
+%%
+%Several experts have already been identified,
+%particularly prof. Sven Tomforde,
+%who has expressed interest in collaborating.
+%%
+%Additionally,
+%I hope to discuss potential collaborations soon with a network of experts who have participated in the aforementioned conferences,
+%such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
+%who have already worked with our research group.
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
