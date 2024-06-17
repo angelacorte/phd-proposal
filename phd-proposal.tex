@@ -239,33 +239,26 @@ and developing an architecture and prototype for monitoring distributed simulati
 \subsection{Motivation.}
 \label{subsec:motivation.}
 
-Typical applications of aggregate computing implement and execute a single, albeit complex, algorithm.
+Typical applications of aggregate computing run a single, complex algorithm.
 %
 However,
-there are scenarios where these aggregated algorithms need to be added, removed,
-or manipulated at runtime without affecting the others.
+there are scenarios where these algorithms need to be added, removed,
+or manipulated at runtime without affecting others.
 %
-For example,
-in a crowd management situation where people are directed to move in a certain direction,
-congestion might occur,
-requiring law enforcement to alter the movement of a portion of the crowd.
-
-This concept parallels how modern \acp{os} manage processes, but in space and time.
+For example, in crowd management,
+law enforcement might need to alter the movement of a portion of the crowd to prevent congestion.
 %
-To achieve similar functionalities in the realm of aggregate computing,
+This parallels how modern \acp{os} manage processes but extends to space and time.
+%
+To achieve similar functionalities in aggregate computing,
 it is necessary to advance towards the development of \emph{\ac{cos}}.
 %
-These systems, in fact,
-face concerns akin to those of ``concentrated'' \ac{os},
-such as the management of devices, users, groups and relative permissions, and signals;
-but in a distributed environment in which these concepts assume a different meaning
-entailing space and time.
+These systems handle concerns similar to traditional \acp{os} --such as managing devices, users, groups, permissions, and signals--
+but in a distributed environment where these concepts involve space and time.
 %
 Additionally,
-\acp{cas} are usually composed of heterogeneous devices,
-meaning that the system must be able to,
-simultaneously,
-abstract away their differences and manage their specificities.
+collective systems often consist of heterogeneous devices,
+requiring the system to abstract their differences while managing their specificities.
 
 \subsection{Idea}
 \label{subsec:idea}
@@ -324,150 +317,122 @@ Realizing such a system requires an understanding of the meaning of various conc
 
 \paragraph{Users and permissions.}
 \label{par:users-and-permissions}
-In classic \acp{os} exists a subdivision of users and groups,
-and access to resources and services is based on the user's role relative to the context in which they are located.
+In classic \acp{os},
+exists the concept of users and groups,
+with access to resources and services based on their roles and context.
 %
-In an aggregate or collective context,
-at the moment,
-there is no clear definition if what a user (or group) is and how to manage its permissions inside the collective system.
+However,
+in aggregate or collective systems,
+there is currently no clear definition of users or groups and how to manage their permissions.
 %
 For example,
-in a crowd management scenario,
-there are multiple types of users:
-the people who are part of the crowd and the law enforcement officers who manage the crowd.
+in crowd management,
+there are different user types:
+the crowd and the law enforcement officers managing them.
 %
-Clearly,
-the law enforcement officers have more permissions than the people in the crowd and can execute different actions.
+Law enforcement officers have more permissions and can execute different actions compared to the crowd.
 
 \paragraph{Signals and interrupts.}
 \label{par:signals-and-interrupts}
-Similarly, the concept of interrupt and signal cannot be simply inherited from the traditional \acp{os},
-and needs rethinking.
+The concept of interrupts and signals requires careful consideration in the context of aggregate systems.
 %
-Signals are a similar problem as permissions, it must be clear who sends a signal because it can
-change the behavior of the recipient process.
+Similar to permissions,
+it's crucial to identify the sender of a signal,
+as it can alter the behavior of the recipient process.
 %
-It must be possible to send a signal (such as a termination or kill signal) to an aggregate process specifically,
-without affecting the others;
-moreover,
-not every user in the system can send arbitrary signals to arbitrary aggregate processes:
-in this sense,
-the management of signals is tightly coupled with the capability of managing permissions in space and time.
+In aggregate environments,
+the management of signals is closely linked to permissions,
+ensuring that only authorized entities can send specific signals to target processes without affecting others.
 %
-Moreover,
-it must be investigated what a pause or continue or kill signal means in an aggregate environment.
-%
-For instance,
-in the aggregate processes approach termination is managed collectively and cannot be interrupted yet. %todo check
+Understanding the implications of signals like pause, continue, or terminate is essential,
+as termination in aggregate processes is collectively managed and typically cannot be interrupted.
 %
 However,
-there may be situations where a single device decides to terminate processes or where a process using shared
-resources loses the right to use them during execution,
-introducing a distributed consensus problem.
-
-Using the example of the crowd management scenario,
-there may be situations involving crowd sensing or crowd steering where law enforcement realizes that too many people are gathering.
+exceptions may arise where individual devices initiate process termination or when a process loses access to shared resources,
+posing distributed consensus challenges.
 %
-Depending on the situation,
-third-party entities allowed to send certain kinds of signals can decide to interrupt the crowd-management process.
-
-The necessity of sending signals to processes while they are running establishes the need for a mechanism to enable changes to the system's behavior at runtime.
+For instance, in crowd management scenarios,
+third-party entities may intervene by interrupting crowd management processes based on crowd sensing or steering observations.
+%
+This highlights the necessity of a runtime mechanism to facilitate dynamic changes in system behavior.
 
 \paragraph{Intra-process communication.}
 \label{par:intra-process-communication}
-Communication between processes in different regions of space is another issue that needs to be addressed.
+Communication between processes in different spatial regions is another challenge.
 %
-For example,
-in a crowd steering and crowd tracking scenario,
-there are different processes that need to communicate between them to manage the crowd.
+For instance,
+in a crowd steering and tracking scenario,
+processes managing these tasks need to communicate to effectively manage the crowd.
 %
-A process managing the crowd steering needs to communicate with the process that is managing the crowd tracking,
-to understand where the people are and how to move them.
+A steering process must communicate with a tracking process to understand crowd locations and direct movement accordingly.
 
-Moreover, intra-process communication,
-mediated by shared memory spaces or files in traditional systems,
-is not applicable as-is when processes are inherently distributed,
-so further research is needed from this point of view.
+Intra-process communication,
+typically managed by shared memory spaces or files in traditional systems,
+isn't directly applicable in distributed processes,
+necessitating further research.
 %
-Actually,
-this feature is not present in the current aggregate processes,
-where the communication between processes is not allowed. %todo check
+Currently, aggregate processes lack this communication capability.
 
 \paragraph{Distributed sensors and actuators.}
 \label{par:distributed-sensors-and-actuators}
-Another challenge is the management of distributed sensors and actuators.
+Managing distributed sensors and actuators presents another challenge.
 %
-Combining the capabilities of multiple devices to achieve a common observation as a single entity or logical resource,
-can lead to a more abstract and high-level programming approach,
-and to involve heterogeneous devices in the system,
-seen as a ``collective sensor'',
-realizing a form of ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
+By combining multiple devices into a single entity or logical resource,
+we can achieve a higher-level programming approach and involve heterogeneous devices as a ``collective sensor'',
+realizing a ``sensor fusion''~\cite{sasiadek2002sensor} at the application level.
 %
-In the crowd management scenario,
-various sensors or devices may be involved in observing the crowd and sending data to the system for management.
+In crowd management,
+various sensors observe the crowd and send data to the system,
+which should treat the data as coming from a single entity for more abstract and efficient management.
+%\\
 %
-The system should treat data received from different devices as if it were from a single entity,
-allowing for a more abstract and high-level programming approach.
-\\
-
-The proposed research project therefore aims to investigate the development of \emph{\ac{cos}},
-based on the \ac{ac} paradigm.
-%
-The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
-and the possibility to adapt to \emph{dynamic} changes in the environment.
+%The proposed research project therefore aims to investigate the development of \emph{\ac{cos}},
+%based on the \ac{ac} paradigm.
+%%
+%The paradigm itself of \ac{ac} also offers consistency and resilience to failures,
+%and the possibility to adapt to \emph{dynamic} changes in the environment.
 
 \subsection{Reference scenarios}
 \label{subsec:example-applications}
 
 \sloppypar
 \paragraph{Crowd management.}
-The system can find application in various scenarios,
-such as the crowd management or surveillance scenario.
+
+The system's versatility extends to various scenarios,
+including crowd management and surveillance.
 %
-The system can be applied to manage the movement of the people to avoid congestion,
-by sensing the crowd and steering it in a certain direction to prevent overcrowding and dangerous situations.
+It can effectively manage crowd movement to prevent congestion and hazardous situations by sensing and steering crowds.
 %
-In this case,
-there may be several drones, or sensors, who are running the same aggregate process,
-observing the crowd and sending data to the system,
-which sees them as a single entity (distributed sensors and actuators).
+Drones or sensors running aggregate processes observe and send data to the system,
+treating them as a collective entity (distributed sensors and actuators).
 %
-People in the crowd are managed by evaluating the data received,
-letting another process direct the movement of the people.
+Crowd movement is directed based on data evaluation,
+with communication between processes facilitating efficient crowd management.
 %
-As previously discussed,
-the two processes need to communicate between them to manage the crowd in an efficient way (intra-process communication),
-making people move in the right direction depending on the situation.
+Intra-process communication ensures coordination between processes, enabling an effective crowd direction based on the situation.
 %
-There may also be a need for law enforcement intervention to manage the crowd (users and permissions),
-sending signals or interrupts to the processes in execution to change the direction of the crowd.
+Law enforcement intervention may be necessary,
+involving signal or interrupt transmission to alter the crowd direction.
 
 \sloppypar
 \paragraph{Autonomous navigation.}
-One of the problems presented in the aforementioned collaboration with prof. Sven Tomforde,
-involves communication between maritime autonomous surface ships in the Kiel Canal.
+In the collaboration with Prof. Sven Tomforde,
+a key challenge that has been presented involves communication between maritime autonomous surface ships in the Kiel Canal.
 %
-Ships use different technologies to communicate with each other,
-depending on the distance between them,
-with data rates extremely different depending on the technology used.
+These ships utilize varying communication technologies depending on their distance,
+resulting in significantly different data rates.
 %
-Specifically,
-the farther apart the ships are,
-the fewer data they can exchange due to the technology of communication available;
-for instance,
-the ships in a shorter range typically communicate through 5G and can exchange more data between them,
-rather than the ships in a longer range that send data using satellite communication.
+For instance,
+ships in closer proximity typically use 5G for communication and can exchange more data compared to those farther apart,
+which rely on satellite communication.
 %
-It is believed that through \ac{ac},
-and particularly through the use of \ac{xc},
-a contribution can be made towards solving this problem.
+It is believed that employing \ac{ac}, particularly through \ac{xc}, can address this issue.
 %
-The system should automatically adapt to the appropriate technology of communication,
-choosing the priority data to exchange between the ships,
-therefore minimizing the errors in the communication between them.
+The system should autonomously adapt to the most suitable communication technology,
+prioritizing data exchange between ships to minimize communication errors.
 
 \sloppypar
-\paragraph{Light management in a smart city.}
+\paragraph{Smart cities.}
 Many other application scenarios can be considered,
 such as avoiding light pollution or traffic congestion in a smart city.
 %
@@ -518,44 +483,37 @@ In the \Cref{fig:timeline} is shown a hypothetical timeline with tasks of the th
 where each year is subdivided into quarters.
 
 \sloppypar
-\paragraph{First year}
-In the first year of the project,
-it is essential to thoroughly investigate the state of the art and create a simplified model of how the new system should work.
+\paragraph{First year.}
+In the project's first year,
+a thorough exploration of the current state of the field is crucial,
+along with establishing a simplified model for the new system.
 %
-The simplified model will include the definition of the main interconnected concepts of the system,
-such as the implementation of the aggregate processes,
-the management of permissions and the collective sensing of external devices.
+This model will define key interconnected elements such as aggregate processes,
+permission management, and collective device sensing.
 %
-Following this,
-the actual development process begins with the prototype implementation in the target language Collektive.
+Subsequently,
+prototype development in Collektive will commence.
 %
-At the end of the first year,
-there will be enough foundations to start the development of the system in a use case scenario.
-%
-The use case will be relevant to the crowd safety scenario,
-including crowd steering, sensing, and tracking.
+By year-end,
+these foundational steps will set the stage for system development within a relevant use case scenario,
+focusing on crowd safety aspects like steering, sensing, and tracking.
 
 \sloppypar
-\paragraph{Second year}
-The second year of the project will be focused on completing the simplified model of the system,
-leading to the development of the extended model,
-that includes the management of users or groups, signals and interrupts, and intra-process communication.
+\paragraph{Second year.}
+In the project's second year,
+the focus shifts to completing the simplified model and developing the extended model,
+which includes user management, signals, interrupts, and intra-process communication.
 %
-Throughout the year,
-the focus will be on continuing the development of the prototype,
-expanding on the concepts investigated in the first year,
-and incorporating features such as runtime aggregate programs injection.
+Efforts continue to advance the prototype,
+integrating concepts explored in the first year and adding features like runtime aggregate program injection.
 %
-Eventually,
-when considering the international research stay,
-the plan is to establish contacts with companies or research groups that possess the necessary hardware to test the system.
+Plans include establishing connections for hardware testing during an international research stay.
 %
-Towards the end of this period,
-the first use case will be implemented and tested in a simulated environment,
-leaving space to the implementation of the second use case inherent to the autonomous navigation scenario.
+The year concludes with the implementation and testing of the first use case in a simulated environment,
+followed by starting the work on the second use case involving autonomous navigation.
 
 \sloppypar
-\paragraph{Third year}
+\paragraph{Third year.}
 In the third and final year of the project,
 the extended model of the system will be completed, alongside the development of the prototype
 and the implementation of the third use case scenario mentioned before.
@@ -573,40 +531,28 @@ The degree of success will depend on the features implemented among those previo
 
 \sloppypar
 \paragraph{Quantitative.}
-Experiments will be conducted at least in a simulated environment,
-eventually in a real-world scenario with the help of a partnership where appropriate hardware is available.
+Experiments will initially take place in a simulated environment and later in a real-world setting with suitable
+hardware support through partnerships.
 %
-Therefore,
-metrics to evaluate the system will be defined depending on the use case scenario;
-will be then compared with the state-of-the-art approaches and with an oracle system,
-to understand how far from the optimal solution the system is.
+Metrics will be tailored to each use case scenario for system evaluation,
+comparing results with state-of-the-art approaches and an oracle system to gauge performance relative to optimal solutions.
+%
+As field-testing requires specialized hardware,
+efforts will be made to secure partnerships for international research stays during the PhD program,
+facilitating access to necessary equipment for project testing.
 
-However,
-as field-testing is more challenging due to the need for specific hardware.
-the possibility of securing a partnership for an international research stay during the PhD program will be pursued,
-where appropriate hardware is available to test the project.
+\sloppypar
+\paragraph{Scientific contribution and dissemination.}
+The objective is to produce and submit papers to one or two conferences annually and to submit a couple of articles to journals,
+focusing on communities specializing in ``self-organizing systems'' like \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
+as well as journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
+
+Success will also be gauged by establishing international collaborations, with identified experts like Prof. Sven Tomforde showing interest.
 %
-%\sloppypar
-%\paragraph{Scientific contribution.}
-%In terms of scientific results and dissemination,
-%the goal is to produce and submit papers to approximately one or two conferences per year and to have a couple of articles submitted to journals.
-%%
-%The focus will be on the key communities, which have as topic ``self-organizing systems'',
-%such as \emph{ACSOS}\footnote{\url{https://acsos.github.io}} or \emph{SEAMS}\footnote{\url{https://conf.researchr.org/home/seams-2025}},
-%or even journals such as \emph{ACM TAAS}\footnote{\url{https://dl.acm.org/journal/taas}}.
-%
-%\sloppypar
-%\paragraph{Dissemination.}
-%Another way to evaluate the success of the project is through the creation of international collaborations.
-%%
-%Several experts have already been identified,
-%particularly prof. Sven Tomforde,
-%who has expressed interest in collaborating.
-%%
-%Additionally,
-%I hope to discuss potential collaborations soon with a network of experts who have participated in the aforementioned conferences,
-%such as prof. Lukas Esterle and prof. Alessandro Papadopoulos,
-%who have already worked with our research group.
+Additionally,
+discussions for potential collaborations are planned with experts from networks involved in the aforementioned conferences,
+such as Prof. Lukas Esterle and Prof. Alessandro Papadopoulos,
+who have prior collaboration experience with our research group.
 
 % ----------------------------------------
 \bibliographystyle{IEEEtran}
